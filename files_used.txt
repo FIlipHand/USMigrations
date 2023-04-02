@@ -1,0 +1,4 @@
+https://www2.census.gov/programs-surveys/demo/tables/geographic-mobility/2020/county-to-county-migration-2016-2020/county-to-county-migration-flows/Net_Gross_US.txt
+https://www.ers.usda.gov/webdocs/DataFiles/48747/Education.xlsx?v=1333
+https://www.ers.usda.gov/webdocs/DataFiles/48747/Unemployment.xlsx?v=1333
+#https://apps.bea.gov/regional/downloadzip.cfm
