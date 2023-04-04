@@ -157,6 +157,10 @@ def process_hpi_data():
         row_dict = dict(zip(base_columns, values))
         new_df = pd.DataFrame(row_dict, index=[0])
         final_dataframe = pd.concat([final_dataframe, new_df], ignore_index=True)
+
+    for col in final_dataframe.columns[3:]:
+        final_dataframe[col] = pd.to_numeric(final_dataframe[col], errors='coerce')
+
     return final_dataframe
 
 
