@@ -242,5 +242,49 @@ def save_files_to_process_directory():
     print('DONE processing health data')
 
 
+# Tutaj rzuce kod odpowiedzialny ze preprocessing danych do pupulacji, nie wurzcam tego do funkcji żeby nie grzebać
+# się w ścieżkach w razie czego tutaj to jest i potem to zmienie jak bedzie trza
+
+# dummy = pd.read_csv('../data/processed/education_data.csv', delimiter=';')
+# krowa = {}
+# for fips_code, state, county in zip(dummy['FIPS code'], dummy['State'], dummy['Area name']):
+#     krowa[(state, county)] = fips_code
+#
+# mucka = pd.read_csv('../data/co-est2022-alldata.csv', delimiter=',')
+# mucka = mucka[mucka.columns[5:14]]
+# mucka.drop('ESTIMATESBASE2020', axis=1, inplace=True)
+# mucka.drop(mucka[mucka['STNAME'] == mucka['CTYNAME']].index, inplace=True)
+# mucka.drop(mucka[mucka['CTYNAME'] == 'Greater Bridgeport Planning Region'].index, inplace=True)
+#
+# # Preprocesing brakow w csv
+# mapping = {
+#     'Capitol Planning Region': 'Hartford County',
+#     'Lower Connecticut River Valley Planning Regio': 'Middlesex County',
+#     'Naugatuck Valley Planning Region': 'New Haven County',
+#     'Northeastern Connecticut Planning Region': 'Windham County',
+#     'Northwest Hills Planning Region': 'Litchfield County',
+#     'South Central Connecticut Planning Region': 'Tolland County',
+#     'Southeastern Connecticut Planning Region': 'New London County',
+#     'Western Connecticut Planning Region': 'Fairfield County'
+# }
+#
+# mucka['CTYNAME'] = mucka['CTYNAME'].replace(mapping, regex=False)
+#
+# krowa[('Alaska', 'Chugach Census Area')] = 2063
+# krowa[('Alaska', 'Copper River Census Area')] = 2066
+# krowa[('Alaska', 'Petersburg Borough')] = 2195
+# krowa[('Illinois', 'LaSalle County')] = krowa[('Illinois', 'La Salle County')]
+# krowa[('Louisiana', 'LaSalle Parish')] = krowa[('Louisiana', 'La Salle Parish')]
+# krowa[('New Mexico', 'Doña Ana County')] = krowa[('New Mexico', 'Dona Ana County')]
+#
+# new_col = []
+# for i, j in zip(mucka['STNAME'], mucka['CTYNAME']):
+#     new_col.append(krowa[(i, j)])
+#
+# mucka.insert(loc=0, column='FIPS code', value=new_col)
+#
+# mucka.to_csv(os.path.join(get_project_root(), 'data/processed/population_20-22_data.csv'), sep=';', index=False)
+
+
 if __name__ == '__main__':
     save_files_to_process_directory()
