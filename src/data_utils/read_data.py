@@ -1,7 +1,9 @@
 import pandas as pd
+import numpy as np
+import sys, os, pathlib
+sys.path.append(str(pathlib.Path(os.getcwd())))
 from src.utils.name_utils import US_STATES_DIR
 from src.utils.projekt_utils import get_project_root
-import os
 from glob import glob
 
 
@@ -10,6 +12,28 @@ def process_migration_data():
                             sep=';')
     return core_data
 
+def convert_migration_data_to_matrix():
+    core_data = pd.read_csv(os.path.join(get_project_root(), 'data/processed/MigrationData.csv'), encoding='latin-1',
+                            sep=';',skipinitialspace = True)
+
+    names = np.array(['StateA', 'CountyA','StateB', 'CountyB'])
+    for name in names:
+        core_data[name] = core_data[name].map(str.strip)
+
+    us_data = core_data[core_data['StateA'].isin(US_STATES_DIR.values()) & core_data['StateB'].isin(US_STATES_DIR.values())]
+    counties = us_data['CountyA'].unique()
+    counties_dict = dict(zip(counties, range(counties.shape[0])))
+    mat = np.zeros((counties.shape[0], counties.shape[0]))
+
+    FLOW = 'FlowB-A'
+    for row in us_data.values:
+        # 
+        # us_data.columns.get_loc('CountyA') == 2
+        # us_data.columns.get_loc('CountyA') == 4
+        mat[counties_dict[row[2]], counties_dict[row[4]]] = row[us_data.columns.get_loc(FLOW)]
+
+    matrix_df = pd.DataFrame(mat, columns=counties, index=counties)
+    return matrix_df
 
 def process_unemployment_data():
     data = pd.read_excel(os.path.join(get_project_root(), './data/raw/Unemployment.xlsx'), skiprows=4)
@@ -241,6 +265,10 @@ def save_files_to_process_directory():
     health_data.to_csv(os.path.join(get_project_root(), 'data/processed/health_data.csv'), sep=';', index=False)
     print('DONE processing health data')
 
+    migration_matrix = convert_migration_data_to_matrix()
+    migration_matrix.to_csv(os.path.join(get_project_root(), 'data/processed/migration_matrix.csv'), sep=';')
+    # reading : pd.read_csv(os.path.join(get_project_root(), /data/processed/migration_matrix.csv'), sep=';', index_col=0)
+    print('DONE converting migration data')
 
 if __name__ == '__main__':
     save_files_to_process_directory()
