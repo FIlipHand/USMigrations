@@ -1,0 +1,113 @@
+\documentclass[a4paper,12pt]{article}
+\usepackage{geometry}
+\geometry{
+	left=20mm,
+	top=20mm,
+}
+\usepackage{polski}
+\usepackage[utf8]{inputenc}
+\usepackage{graphicx}
+\graphicspath{{.}}
+\usepackage{amssymb}
+\usepackage{amsmath}
+
+\newcommand{\softmax}{\mathrm{softmax}}
+
+
+\usepackage[backend=bibtex, sorting=none]{biblatex}
+\addbibresource{./sources.bib}
+
+\begin{document}
+\begin{titlepage}
+    \begin{center}
+        \vspace*{1cm}
+
+        \Huge
+        \textbf{Metody stochastyczne}
+
+        \vspace{0.5cm}
+        \LARGE
+        Tutaj kiedyś coś będzie
+
+        \vspace{1.5cm}
+
+        \textbf{Filip Ręka\\ Daniel Kuc\\ Piotr Rzeźnik}
+
+        \vfill
+
+        % A thesis presented for the degree of\\
+        % Doctor of Philosophy
+
+        \vspace{0.8cm}
+
+        \Large
+        A\\
+        G\\
+        H\\
+        \today
+
+    \end{center}
+\end{titlepage}
+\newpage
+\section*{Wstęp}
+Migracja jest powszechna w dzisiejszym świecie. Ludzie migrują ze względu na pracę, szkołę,
+studia, rodzinę, a także przez wiele innych czynników. Migrację można podzielić ze względu na
+kilka aspektów, ale w tym przypadku najważniejszy jest podział na migrację wewnętrzną i zewnętrzną.
+Ta praca będzie opierała się na migracji wewnętrznej, czyli w obrębie granic jednego państwa.
+Stany Zjednoczone zostały wybrane ze względu na bardzo dużą mobilność ich ludności,
+czyli skłonność do zmiany miejsca zamieszkania.
+
+
+\section*{Przegląd literatury}
+Temat migracji pojawia się w literaturze od wielu lat i jest przedmiotem badań w wielu obszarach naukowych.  Michael Greenwood w swoim artykule rozważał trendy, kierunki i powody wewnętrznej migracji w Stanach Zjednoczonych w latach 1965-1983 \cite*{Greenwood1985HumanMT}. Bardzo często badany jest wpływ zmiany klimatu i zagrożeń z niego płynących na migrację ludności [3]. Brany jest pod uwagę wzrost poziomu wody w morzach, powodzie, a także susze [4] [5] [6]. Często migracja jest zestawiana z rozprzestrzenianiem się chorób. Były przeprowadzone badania na temat wpływu migracji na rozprzestrzenianie się np. malarii lub koronawirusa [7] [8].
+Do modelowania samej migracji wykorzystywane od dawna był wykorzystywany model grawitacyjny, który przewiduje stopień migracji pomiędzy dwoma miejscami i opiera się na prawie powszechnego ciążenia. Model ten jest nadal popularny w ostatnich latach [9].  Rozszerzeniem modelu grawitacyjnego jest model radiacyjny. Także bazuje on na zjawisku fizycznym, tym razem na rozchodzeniu się fal w próżni [10]. Może on zostać zgeneralizowany także na inne cechy dwóch miejsc  np. ich poziom zurbanizowania [11].  W badaniach nad migracją ludności w sieci miejsc używano już łańcuchów Markowa do symulowania przepływu ludności między miastami [12].  Do przewidywania kierunków migracji ludności były użyte także metody uczenia maszynowego. W artykule Caleb Robinson i Bistra Dilkina zostały porównane ze sobą modele grawitacyjne, radiacyjne oraz modele uczenia maszynowego XGBoost i sieć neuronowa (MLP) [13].
+
+
+
+\section*{Dane użyte przy realizacji projektu}
+Dane pochodzą z instytucji rządowych, przez co mamy pewność że są wiarygodne.
+
+Opiszemy tutaj jakie parametry będą mieli ludzie jeśli już podejmiemy o nich decyzję.
+
+\newpage
+\section*{Kroki przy realizacji projektu}
+\subsection*{Wybór cech wpływających na migrację w danym hrabstwie}
+Mając dane dotyczące ilości osób które migrują z danego hrabstwa do innych hrabstw, jesteśmy w stanie dowiedzieć się, które cechy z jaką siłą wpływają na migrację ludności. Oczywiste jest to, że w każdym hrabstwie będą to inne cechy, dlatego prezentujemy takie podejście do rozwiązania tego problemu.
+
+Każde hrabstwo jest przedstawione przy pomocy wektora cech o stałym rozmiarze $N$. Mając dane dotyczące ilości osób, które z rozważanego hrabstwa wyemigrowały, jesteśmy w stanie policzyć siłę "przyciągania" w następujący sposób:
+\begin{itemize}
+    \item $h_A$ - macierz cech hrabstwa z którego emigracje rozważamy
+    \item $h_1, h_2, \dots, h_k$ - macierze cech hrabstw, do których mieszkańcy hrabstwa A emigrowali
+\end{itemize}
+Dla każdego hrabstwa od 1 do $k$ posiadamy dane dotyczące ile osób z hrabstwa $A$ wyemigrowało do każdego z pozostałych. Wpiszmy te dane do wektora $d$. Aby obliczyć prawdopodobieństwa stosunku migraci używamy funkcji softmax, która zamieni nasz wektor w wektor prawdopodobieństw.
+\begin{equation}
+    t = \softmax(d)
+\end{equation}
+
+Jeżeli każde hrabstwo jest opisywane przez wektor o stałej długości, jesteśmy w stanie wszystkie hrabstwa nanieść na $N$-wymiarową przestrzeń. Osoba zamieszkująca dane hrabstwo jest opisywana przy pomocy takiej samej liczby cech co wektor dla hrabstwa. Osoby, które są bardziej skłonne do migracji, po naniesieniu ich wektora cech na przestrzeń, będą znajdywały się dalej od rodzinnego hrabstwa, odległość ta determinuje skłonność do migracji. Podejście to nie bierze pod uwagę czynników, które mogą wpłynąć na miejsce docelowe. Przykładowo osoba znajdująca się w hrabstwie o niskim PKB, będzie bardziej skłonna do emigracji do tych hrabstw, które również mają niskie PKB, co jest raczej nieintuicyjne, ponieważ będzie znajdowała się w przestrzeni bliżej nich. Dlatego chcemy znaleźć dla mieszkańca danego hrabstwa takie wagi odpowiadające za ``siłę", które po wykonaniu produktu Hadamarda na wektorze cech osoby i wag, da nam lepsze umieszczenie w przestrzeni.
+
+Dla każdego hrabstwa generujemy wektor, który reprezentuje hipotetyczne hrabstwo, które powstaje w następujący sposób:
+\begin{equation}
+    h_{vA} = \sum_{i=1}^{k} t_i h_i
+\end{equation}
+
+Aby dostać wektor reprezentujący wpływ danej cechy na migrację biremy różnicę wektora wirtualnego hrabstwa oraz badanego hrabstwa:
+\begin{equation}
+    h_{wA} = 1 + \mathrm{norm}(h_{vA} - h_{A})
+\end{equation}
+Różnica wektorów będzie poddana normalizacji, a następnie przesunięta o 1 tak aby zachować element neutralny skalowania.
+
+\subsection*{Przebieg symulacji}
+\begin{enumerate}
+    \item Wylosowanie ustalonej liczby przedstawicieli z każdego hrabstwa
+    \item Wykonujemy produkt Hadamarda pomiędzy wektorem wag a pomiędzy każdym wylosowanym mieszkańcem
+    \item Dla każdego mieszkańca obliczmy jego ``odległość" od hrabstwa rodzinnego i na podstawie tej odległości decydujemy czy będzie on migrował czy nie
+    \item Sprawdzamy ile osób wyemigrowało z danego hrabstwa i na tej podstawie losujemy bez zwracania właśnie taką liczbę emigrantów
+    \item Dla każdej wylosowanej osoby obliczamy odległość w przestrzeni do każdego innego hrabstwa i podstawie tej odległości losujemy jedno hrabstwo do którego reprezentant wyemigruje
+    \item Ponownie losujemy wybrane zmienne cech (takie jak np. zarobki) inne pozostawimy bez zmian, a jeszcze inne ustawiamy na takie, jakie występują w obecnym miejscu zamieszkania
+    \item Przez ustaloną liczbę kroków symulacji wykonujemy polecenia zaczynając od numeru 2.
+\end{enumerate}
+
+\newpage
+\printbibliography[title=Bibliografia]
+\end{document}

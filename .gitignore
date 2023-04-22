@@ -161,3 +161,12 @@ cython_debug/
 
 # nasze rzeczy 
 data/raw
+
+*.run.xml
+*.aux
+*.bbl
+*.fls
+*.fdb_latexmk
+*.gz
+*.xdv
+*.blg
