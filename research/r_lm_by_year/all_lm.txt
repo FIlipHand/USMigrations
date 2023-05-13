@@ -1,0 +1,578 @@
+
+Call:
+lm(formula = NPOPCHG2022 ~ ., data = data)
+
+Residuals:
+     Min       1Q   Median       3Q      Max 
+-1.14374 -0.05971 -0.00377  0.05665  2.49014 
+
+Coefficients: (84 not defined because of singularities)
+                                                                           Estimate Std. Error t value Pr(>|t|)    
+(Intercept)                                                               8.633e-15  3.437e-03   0.000 1.000000    
+Some.college..1.3.years...1970                                            3.054e-01  1.556e-01   1.963 0.049741 *  
+Four.years.of.college.or.higher..1970                                    -5.340e-01  1.312e-01  -4.069 4.87e-05 ***
+Percent.of.adults.with.less.than.a.high.school.diploma..1970              2.725e-01  8.209e-01   0.332 0.739984    
+Percent.of.adults.with.a.high.school.diploma.only..1970                   1.831e-01  5.180e-01   0.353 0.723810    
+Percent.of.adults.completing.some.college..1.3.years...1970               7.381e-02  2.330e-01   0.317 0.751416    
+Percent.of.adults.completing.four.years.of.college.or.higher..1970        8.837e-02  2.568e-01   0.344 0.730763    
+Less.than.a.high.school.diploma..1980                                    -6.295e-01  1.423e-01  -4.425 1.01e-05 ***
+High.school.diploma.only..1980                                           -6.498e-01  1.721e-01  -3.775 0.000164 ***
+Some.college..1.3.years...1980                                           -1.095e-01  2.900e-01  -0.378 0.705834    
+Four.years.of.college.or.higher..1980                                     4.675e-01  2.366e-01   1.976 0.048241 *  
+Percent.of.adults.with.less.than.a.high.school.diploma..1980              2.376e-01  8.100e-01   0.293 0.769275    
+Percent.of.adults.with.a.high.school.diploma.only..1980                   1.213e-01  4.650e-01   0.261 0.794171    
+Percent.of.adults.completing.some.college..1.3.years...1980               6.804e-02  3.080e-01   0.221 0.825200    
+Percent.of.adults.completing.four.years.of.college.or.higher..1980        1.028e-01  3.669e-01   0.280 0.779311    
+Less.than.a.high.school.diploma..1990                                     1.275e+00  2.738e-01   4.658 3.38e-06 ***
+High.school.diploma.only..1990                                            8.904e-01  2.613e-01   3.408 0.000666 ***
+Some.college.or.associate.s.degree..1990                                  6.633e-01  2.939e-01   2.257 0.024119 *  
+Bachelor.s.degree.or.higher..1990                                         1.085e+00  2.588e-01   4.192 2.87e-05 ***
+Percent.of.adults.with.less.than.a.high.school.diploma..1990              5.232e-01  6.584e-01   0.795 0.426902    
+Percent.of.adults.with.a.high.school.diploma.only..1990                   3.173e-01  4.003e-01   0.793 0.428007    
+Percent.of.adults.completing.some.college.or.associate.s.degree..1990     3.259e-01  3.865e-01   0.843 0.399116    
+Percent.of.adults.with.a.bachelor.s.degree.or.higher..1990                3.662e-01  4.353e-01   0.841 0.400327    
+Less.than.a.high.school.diploma..2000                                    -6.777e-02  3.746e-01  -0.181 0.856435    
+High.school.diploma.only..2000                                           -9.604e-01  2.916e-01  -3.294 0.001003 ** 
+Some.college.or.associate.s.degree..2000                                 -2.442e-01  3.955e-01  -0.617 0.536977    
+Bachelor.s.degree.or.higher..2000                                        -8.149e-01  3.789e-01  -2.151 0.031591 *  
+Percent.of.adults.with.less.than.a.high.school.diploma..2000             -9.180e-02  5.427e-01  -0.169 0.865685    
+Percent.of.adults.with.a.high.school.diploma.only..2000                  -3.889e-02  4.337e-01  -0.090 0.928562    
+Percent.of.adults.completing.some.college.or.associate.s.degree..2000    -5.289e-02  3.606e-01  -0.147 0.883388    
+Percent.of.adults.with.a.bachelor.s.degree.or.higher..2000               -1.271e-01  5.136e-01  -0.247 0.804607    
+Civilian_labor_force_2000                                                 2.204e+00  3.403e+00   0.648 0.517341    
+Employed_2000                                                            -2.952e+00  3.158e+00  -0.935 0.350016    
+Unemployed_2000                                                                  NA         NA      NA       NA    
+Unemployment_rate_2000                                                    3.222e-03  1.310e-02   0.246 0.805709    
+X2001.Real.GDP..thousands.of.chained.2012.dollars.                        2.532e-01  4.731e-01   0.535 0.592498    
+X2001.Chain.type.quantity.indexes.for.real.GDP                           -5.852e-04  1.280e-02  -0.046 0.963542    
+X2001.Chain.type.quantity.indexes.for.real.GDP..1                                NA         NA      NA       NA    
+X2001.HPI.Change                                                         -4.831e-03  4.573e-03  -1.056 0.290948    
+X2001.Personal.income..thousands.of.dollars.                             -1.016e+00  7.899e-01  -1.287 0.198271    
+X2001.Population..persons..1.                                            -6.549e+00  2.920e+00  -2.243 0.024990 *  
+X2001.Population..persons..1..1                                                  NA         NA      NA       NA    
+Civilian_labor_force_2001                                                -1.481e+01  4.399e+00  -3.367 0.000773 ***
+Employed_2001                                                             1.895e+01  4.166e+00   4.549 5.68e-06 ***
+Unemployed_2001                                                                  NA         NA      NA       NA    
+Unemployment_rate_2001                                                    1.196e-02  1.647e-02   0.726 0.467962    
+X2002.Real.GDP..thousands.of.chained.2012.dollars.                        3.417e-01  7.212e-01   0.474 0.635672    
+X2002.Chain.type.quantity.indexes.for.real.GDP                           -6.675e-03  1.642e-02  -0.406 0.684418    
+X2002.Chain.type.quantity.indexes.for.real.GDP..1                                NA         NA      NA       NA    
+X2002.HPI.Change                                                          3.253e-04  5.579e-03   0.058 0.953506    
+X2002.Personal.income..thousands.of.dollars.                              2.178e+00  1.205e+00   1.808 0.070768 .  
+X2002.Population..persons..1.                                             2.278e+01  4.928e+00   4.623 4.01e-06 ***
+X2002.Population..persons..1..1                                                  NA         NA      NA       NA    
+Civilian_labor_force_2002                                                -3.651e+00  4.225e+00  -0.864 0.387616    
+Employed_2002                                                             1.228e+00  4.067e+00   0.302 0.762649    
+Unemployed_2002                                                                  NA         NA      NA       NA    
+Unemployment_rate_2002                                                   -5.284e-03  1.779e-02  -0.297 0.766474    
+X2003.Rural.urban.Continuum.Code                                         -1.001e-02  1.367e-02  -0.732 0.464110    
+X2003.Urban.Influence.Code                                                1.551e-03  1.318e-02   0.118 0.906383    
+X2003.Real.GDP..thousands.of.chained.2012.dollars.                       -6.046e-02  7.086e-01  -0.085 0.932011    
+X2003.Chain.type.quantity.indexes.for.real.GDP                           -9.608e-03  1.717e-02  -0.560 0.575781    
+X2003.Chain.type.quantity.indexes.for.real.GDP..1                                NA         NA      NA       NA    
+X2003.HPI.Change                                                          2.685e-03  5.275e-03   0.509 0.610810    
+X2003.Personal.income..thousands.of.dollars.                             -2.066e+00  9.646e-01  -2.142 0.032339 *  
+X2003.Population..persons..1.                                            -2.442e+01  4.443e+00  -5.495 4.35e-08 ***
+X2003.Population..persons..1..1                                                  NA         NA      NA       NA    
+Civilian_labor_force_2003                                                 1.541e+01  5.202e+00   2.963 0.003080 ** 
+Employed_2003                                                            -2.050e+01  4.862e+00  -4.216 2.59e-05 ***
+Unemployed_2003                                                                  NA         NA      NA       NA    
+Unemployment_rate_2003                                                   -3.472e-02  2.060e-02  -1.686 0.091995 .  
+X2004.Real.GDP..thousands.of.chained.2012.dollars.                       -2.386e+00  6.462e-01  -3.692 0.000228 ***
+X2004.Chain.type.quantity.indexes.for.real.GDP                            3.339e-02  1.824e-02   1.830 0.067324 .  
+X2004.Chain.type.quantity.indexes.for.real.GDP..1                                NA         NA      NA       NA    
+X2004.HPI.Change                                                         -4.926e-03  6.191e-03  -0.796 0.426298    
+X2004.Personal.income..thousands.of.dollars.                             -2.824e-01  7.975e-01  -0.354 0.723280    
+X2004.Population..persons..1.                                             5.763e-01  3.914e+00   0.147 0.882959    
+X2004.Population..persons..1..1                                                  NA         NA      NA       NA    
+Civilian_labor_force_2004                                                -7.245e+00  4.910e+00  -1.475 0.140224    
+Employed_2004                                                             9.922e+00  4.701e+00   2.111 0.034912 *  
+Unemployed_2004                                                                  NA         NA      NA       NA    
+Unemployment_rate_2004                                                    1.836e-02  2.114e-02   0.869 0.385092    
+X2005.Real.GDP..thousands.of.chained.2012.dollars.                        2.707e+00  6.946e-01   3.897 0.000100 ***
+X2005.Chain.type.quantity.indexes.for.real.GDP                           -2.135e-02  1.628e-02  -1.312 0.189744    
+X2005.Chain.type.quantity.indexes.for.real.GDP..1                                NA         NA      NA       NA    
+X2005.HPI.Change                                                         -9.886e-03  6.611e-03  -1.495 0.134954    
+X2005.Personal.income..thousands.of.dollars.                             -1.002e+00  9.299e-01  -1.078 0.281149    
+X2005.Population..persons..1.                                             9.427e+00  2.393e+00   3.940 8.40e-05 ***
+X2005.Population..persons..1..1                                                  NA         NA      NA       NA    
+Civilian_labor_force_2005                                                -1.965e+01  3.784e+00  -5.194 2.25e-07 ***
+Employed_2005                                                             2.015e+01  3.627e+00   5.556 3.09e-08 ***
+Unemployed_2005                                                                  NA         NA      NA       NA    
+Unemployment_rate_2005                                                    4.197e-02  1.873e-02   2.241 0.025131 *  
+X2006.Real.GDP..thousands.of.chained.2012.dollars.                        6.802e-01  6.684e-01   1.018 0.308900    
+X2006.Chain.type.quantity.indexes.for.real.GDP                           -1.901e-02  1.376e-02  -1.382 0.167157    
+X2006.Chain.type.quantity.indexes.for.real.GDP..1                                NA         NA      NA       NA    
+X2006.HPI.Change                                                         -7.950e-03  5.381e-03  -1.477 0.139733    
+X2006.Personal.income..thousands.of.dollars.                              2.217e+00  8.982e-01   2.468 0.013668 *  
+X2006.Population..persons..1.                                             2.029e+00  2.197e+00   0.924 0.355768    
+X2006.Population..persons..1..1                                                  NA         NA      NA       NA    
+Civilian_labor_force_2006                                                 2.862e+01  4.239e+00   6.751 1.86e-11 ***
+Employed_2006                                                            -2.859e+01  4.072e+00  -7.022 2.89e-12 ***
+Unemployed_2006                                                                  NA         NA      NA       NA    
+Unemployment_rate_2006                                                   -4.089e-02  1.994e-02  -2.051 0.040429 *  
+X2007.Real.GDP..thousands.of.chained.2012.dollars.                        1.840e-01  5.065e-01   0.363 0.716402    
+X2007.Chain.type.quantity.indexes.for.real.GDP                            1.329e-02  1.217e-02   1.092 0.275078    
+X2007.Chain.type.quantity.indexes.for.real.GDP..1                                NA         NA      NA       NA    
+X2007.HPI.Change                                                         -5.665e-03  5.125e-03  -1.105 0.269114    
+X2007.Personal.income..thousands.of.dollars.                             -2.538e+00  6.769e-01  -3.749 0.000182 ***
+X2007.Population..persons..1.                                            -2.738e-01  4.601e+00  -0.060 0.952545    
+X2007.Population..persons..1..1                                                  NA         NA      NA       NA    
+Civilian_labor_force_2007                                                -9.473e+00  4.570e+00  -2.073 0.038302 *  
+Employed_2007                                                             7.347e+00  4.547e+00   1.616 0.106271    
+Unemployed_2007                                                                  NA         NA      NA       NA    
+Unemployment_rate_2007                                                    2.307e-02  1.973e-02   1.169 0.242387    
+Less.than.a.high.school.diploma..2008.12                                  9.324e-01  3.875e-01   2.406 0.016192 *  
+High.school.diploma.only..2008.12                                         1.989e+00  3.496e-01   5.689 1.45e-08 ***
+Some.college.or.associate.s.degree..2008.12                               3.884e-01  3.956e-01   0.982 0.326318    
+Bachelor.s.degree.or.higher..2008.12                                      2.130e+00  4.959e-01   4.294 1.83e-05 ***
+Percent.of.adults.with.less.than.a.high.school.diploma..2008.12           5.648e-03  2.368e-02   0.238 0.811524    
+Percent.of.adults.with.a.high.school.diploma.only..2008.12               -8.974e-03  2.096e-02  -0.428 0.668546    
+Percent.of.adults.completing.some.college.or.associate.s.degree..2008.12  2.521e-02  1.600e-02   1.576 0.115133    
+Percent.of.adults.with.a.bachelor.s.degree.or.higher..2008.12                    NA         NA      NA       NA    
+X2008.Real.GDP..thousands.of.chained.2012.dollars.                       -3.373e+00  3.867e-01  -8.722  < 2e-16 ***
+X2008.Chain.type.quantity.indexes.for.real.GDP                            2.547e-02  1.075e-02   2.370 0.017895 *  
+X2008.Chain.type.quantity.indexes.for.real.GDP..1                                NA         NA      NA       NA    
+X2008.HPI.Change                                                          2.067e-04  6.323e-03   0.033 0.973918    
+X2008.Personal.income..thousands.of.dollars.                              1.074e+00  5.284e-01   2.032 0.042251 *  
+X2008.Population..persons..1.                                            -1.238e+01  4.858e+00  -2.549 0.010871 *  
+X2008.Population..persons..1..1                                                  NA         NA      NA       NA    
+Civilian_labor_force_2008                                                -1.539e-01  4.100e+00  -0.038 0.970057    
+Employed_2008                                                             6.740e+00  3.599e+00   1.872 0.061270 .  
+Unemployed_2008                                                                  NA         NA      NA       NA    
+Unemployment_rate_2008                                                   -1.006e-02  1.989e-02  -0.505 0.613320    
+X2009.Real.GDP..thousands.of.chained.2012.dollars.                        2.432e+00  5.345e-01   4.550 5.66e-06 ***
+X2009.Chain.type.quantity.indexes.for.real.GDP                           -2.473e-02  1.021e-02  -2.421 0.015542 *  
+X2009.Chain.type.quantity.indexes.for.real.GDP..1                                NA         NA      NA       NA    
+X2009.HPI.Change                                                          2.582e-03  6.627e-03   0.390 0.696844    
+X2009.Personal.income..thousands.of.dollars.                              2.440e+00  6.680e-01   3.653 0.000265 ***
+X2009.Population..persons..1.                                             3.321e+00  4.025e+00   0.825 0.409387    
+X2009.Population..persons..1..1                                                  NA         NA      NA       NA    
+Civilian_labor_force_2009                                                 7.783e+00  2.953e+00   2.636 0.008452 ** 
+Employed_2009                                                            -9.655e+00  2.684e+00  -3.597 0.000329 ***
+Unemployed_2009                                                                  NA         NA      NA       NA    
+Unemployment_rate_2009                                                    9.274e-03  2.005e-02   0.463 0.643681    
+X2010.Real.GDP..thousands.of.chained.2012.dollars.                       -2.037e-01  5.383e-01  -0.378 0.705101    
+X2010.Chain.type.quantity.indexes.for.real.GDP                           -8.959e-03  1.193e-02  -0.751 0.452854    
+X2010.Chain.type.quantity.indexes.for.real.GDP..1                                NA         NA      NA       NA    
+X2010.HPI.Change                                                          4.065e-04  5.665e-03   0.072 0.942799    
+X2010.Personal.income..thousands.of.dollars.                             -3.751e+00  5.930e-01  -6.326 3.02e-10 ***
+X2010.Population..persons..1.                                             4.899e+00  3.725e+00   1.315 0.188596    
+X2010.Population..persons..1..1                                                  NA         NA      NA       NA    
+Civilian_labor_force_2010                                                -2.419e+01  4.667e+00  -5.184 2.36e-07 ***
+Employed_2010                                                             2.028e+01  4.338e+00   4.676 3.10e-06 ***
+Unemployed_2010                                                                  NA         NA      NA       NA    
+Unemployment_rate_2010                                                    2.964e-02  3.035e-02   0.977 0.328787    
+X2011.Real.GDP..thousands.of.chained.2012.dollars.                       -2.116e+00  4.963e-01  -4.263 2.10e-05 ***
+X2011.Chain.type.quantity.indexes.for.real.GDP                            1.221e-02  6.424e-03   1.900 0.057504 .  
+X2011.Chain.type.quantity.indexes.for.real.GDP..1                                NA         NA      NA       NA    
+X2011.HPI.Change                                                         -5.191e-04  5.408e-03  -0.096 0.923540    
+X2011.Personal.income..thousands.of.dollars.                              2.537e+00  5.740e-01   4.420 1.03e-05 ***
+X2011.Population..persons..1.                                            -6.795e+00  4.949e+00  -1.373 0.169898    
+X2011.Population..persons..1..1                                                  NA         NA      NA       NA    
+Civilian_labor_force_2011                                                 2.250e+01  4.950e+00   4.546 5.75e-06 ***
+Employed_2011                                                            -1.670e+01  4.863e+00  -3.434 0.000605 ***
+Unemployed_2011                                                                  NA         NA      NA       NA    
+Unemployment_rate_2011                                                   -7.571e-03  3.899e-02  -0.194 0.846042    
+X2012.Real.GDP..thousands.of.chained.2012.dollars.                        2.916e+00  5.527e-01   5.276 1.45e-07 ***
+X2012.Chain.type.quantity.indexes.for.real.GDP                                   NA         NA      NA       NA    
+X2012.Chain.type.quantity.indexes.for.real.GDP..1                                NA         NA      NA       NA    
+X2012.HPI.Change                                                         -8.438e-04  4.924e-03  -0.171 0.863950    
+X2012.Personal.income..thousands.of.dollars.                              4.636e-01  5.344e-01   0.868 0.385751    
+X2012.Population..persons..1.                                             1.695e+01  4.853e+00   3.493 0.000486 ***
+X2012.Population..persons..1..1                                                  NA         NA      NA       NA    
+Civilian_labor_force_2012                                                -1.875e+01  3.836e+00  -4.887 1.10e-06 ***
+Employed_2012                                                             9.557e+00  3.639e+00   2.626 0.008695 ** 
+Unemployed_2012                                                                  NA         NA      NA       NA    
+Unemployment_rate_2012                                                   -2.627e-02  3.556e-02  -0.739 0.460082    
+X2013.Rural.urban.Continuum.Code                                          9.667e-03  1.579e-02   0.612 0.540461    
+X2013.Urban.Influence.Code                                               -8.552e-03  1.322e-02  -0.647 0.517834    
+X2013.Real.GDP..thousands.of.chained.2012.dollars.                       -1.670e-01  6.765e-01  -0.247 0.805079    
+X2013.Chain.type.quantity.indexes.for.real.GDP                           -4.176e-03  7.763e-03  -0.538 0.590668    
+X2013.Chain.type.quantity.indexes.for.real.GDP..1                                NA         NA      NA       NA    
+X2013.HPI.Change                                                         -1.324e-03  4.967e-03  -0.267 0.789787    
+X2013.Personal.income..thousands.of.dollars.                             -3.473e+00  8.180e-01  -4.246 2.27e-05 ***
+X2013.Population..persons..1.                                            -2.577e+01  5.503e+00  -4.682 3.01e-06 ***
+X2013.Population..persons..1..1                                                  NA         NA      NA       NA    
+Rural_urban_continuum_code_2013                                                  NA         NA      NA       NA    
+Urban_influence_code_2013                                                        NA         NA      NA       NA    
+Metro_2013                                                                4.429e-03  8.743e-03   0.507 0.612501    
+Civilian_labor_force_2013                                                 1.536e+01  4.241e+00   3.621 0.000300 ***
+Employed_2013                                                            -6.587e+00  3.688e+00  -1.786 0.074253 .  
+Unemployed_2013                                                                  NA         NA      NA       NA    
+Unemployment_rate_2013                                                    2.136e-02  3.211e-02   0.665 0.505884    
+X2014.Real.GDP..thousands.of.chained.2012.dollars.                       -1.908e+00  7.645e-01  -2.496 0.012630 *  
+X2014.Chain.type.quantity.indexes.for.real.GDP                            1.364e-02  1.205e-02   1.132 0.257849    
+X2014.Chain.type.quantity.indexes.for.real.GDP..1                                NA         NA      NA       NA    
+X2014.HPI.Change                                                         -2.794e-03  5.219e-03  -0.535 0.592443    
+X2014.Personal.income..thousands.of.dollars.                              3.146e+00  8.552e-01   3.678 0.000240 ***
+X2014.Population..persons..1.                                            -1.092e+01  6.643e+00  -1.645 0.100211    
+X2014.Population..persons..1..1                                                  NA         NA      NA       NA    
+Civilian_labor_force_2014                                                 2.397e+01  6.620e+00   3.620 0.000301 ***
+Employed_2014                                                            -2.811e+01  6.540e+00  -4.298 1.80e-05 ***
+Unemployed_2014                                                                  NA         NA      NA       NA    
+Unemployment_rate_2014                                                   -4.281e-02  6.484e-02  -0.660 0.509139    
+X2015.Real.GDP..thousands.of.chained.2012.dollars.                        8.554e-01  8.336e-01   1.026 0.304920    
+X2015.Chain.type.quantity.indexes.for.real.GDP                           -3.044e-03  1.232e-02  -0.247 0.804818    
+X2015.Chain.type.quantity.indexes.for.real.GDP..1                                NA         NA      NA       NA    
+X2015.HPI.Change                                                         -1.642e-03  4.986e-03  -0.329 0.741957    
+X2015.Personal.income..thousands.of.dollars.                             -4.657e+00  9.333e-01  -4.990 6.52e-07 ***
+X2015.Population..persons..1.                                             1.700e+01  5.815e+00   2.924 0.003494 ** 
+X2015.Population..persons..1..1                                                  NA         NA      NA       NA    
+Civilian_labor_force_2015                                                -4.185e+01  6.625e+00  -6.316 3.22e-10 ***
+Employed_2015                                                             4.010e+01  6.738e+00   5.952 3.07e-09 ***
+Unemployed_2015                                                                  NA         NA      NA       NA    
+Unemployment_rate_2015                                                    6.285e-02  2.836e-02   2.216 0.026811 *  
+X2016.Real.GDP..thousands.of.chained.2012.dollars.                        2.027e+00  9.212e-01   2.200 0.027879 *  
+X2016.Chain.type.quantity.indexes.for.real.GDP                           -2.802e-03  1.470e-02  -0.191 0.848901    
+X2016.Chain.type.quantity.indexes.for.real.GDP..1                                NA         NA      NA       NA    
+Excessive.drinking.raw.value.2016                                        -1.531e-02  1.284e-02  -1.193 0.233087    
+Median.household.income.raw.value.2016                                    1.259e-02  1.642e-02   0.767 0.443409    
+Food.insecurity.raw.value.2016                                            1.415e-01  1.041e-01   1.359 0.174233    
+Alcohol.impaired.driving.deaths.raw.value.2016                           -1.523e-03  4.007e-03  -0.380 0.703875    
+Preventable.hospital.stays.raw.value.2016                                 2.669e-03  5.725e-03   0.466 0.641145    
+Insufficient.sleep.raw.value.2016                                        -1.253e-03  1.132e-02  -0.111 0.911821    
+Children.in.poverty.raw.value.2016                                        5.549e-03  1.315e-02   0.422 0.672986    
+X..Hispanic.raw.value.2016                                                1.207e-02  1.559e-02   0.774 0.439211    
+Mammography.screening.raw.value.2016                                      4.509e-03  5.411e-03   0.833 0.404813    
+Long.commute...driving.alone.raw.value.2016                               3.101e-03  7.675e-03   0.404 0.686197    
+Food.environment.index.raw.value.2016                                     1.641e-01  1.389e-01   1.182 0.237461    
+Primary.care.physicians.raw.value.2016                                    1.517e-03  6.029e-03   0.252 0.801370    
+Diabetes.prevalence.raw.value.2016                                       -4.566e-02  1.715e-02  -2.662 0.007818 ** 
+Poor.physical.health.days.raw.value.2016                                  1.930e-02  4.533e-02   0.426 0.670375    
+Some.college.raw.value.2016                                               6.848e-03  1.177e-02   0.582 0.560649    
+Air.pollution...particulate.matter.raw.value.2016                         6.627e-03  6.914e-03   0.958 0.337916    
+Dentists.raw.value.2016                                                  -1.529e-03  5.938e-03  -0.258 0.796791    
+Frequent.physical.distress.raw.value.2016                                -3.176e-02  6.215e-02  -0.511 0.609389    
+Limited.access.to.healthy.foods.raw.value.2016                            8.881e-02  7.848e-02   1.132 0.257905    
+X..65.and.older.raw.value.2016                                           -1.134e-03  1.463e-02  -0.077 0.938250    
+Driving.alone.to.work.raw.value.2016                                     -1.440e-02  6.818e-03  -2.111 0.034846 *  
+Premature.death.raw.value.2016                                            2.315e-02  1.625e-02   1.425 0.154348    
+Uninsured.raw.value.2016                                                 -3.055e-02  1.430e-01  -0.214 0.830861    
+Drinking.water.violations.raw.value.2016                                  9.871e-04  4.293e-03   0.230 0.818176    
+Children.in.single.parent.households.raw.value.2016                      -1.485e-03  7.506e-03  -0.198 0.843163    
+Violent.crime.raw.value.2016                                              1.042e-02  6.004e-03   1.736 0.082755 .  
+X..Native.Hawaiian.Other.Pacific.Islander.raw.value.2016                  3.848e-03  5.732e-03   0.671 0.502072    
+Poor.mental.health.days.raw.value.2016                                   -2.508e-03  3.414e-02  -0.073 0.941455    
+Severe.housing.problems.raw.value.2016                                   -5.205e-03  8.185e-03  -0.636 0.524926    
+Low.birthweight.raw.value.2016                                           -3.961e-03  7.019e-03  -0.564 0.572598    
+Income.inequality.raw.value.2016                                          4.244e-03  6.861e-03   0.619 0.536287    
+Mental.health.providers.raw.value.2016                                   -3.767e-04  5.323e-03  -0.071 0.943588    
+Uninsured.adults.raw.value.2016                                           3.501e-02  1.272e-01   0.275 0.783181    
+Population.raw.value.2016                                                 7.425e+00  1.458e+00   5.094 3.79e-07 ***
+X..Females.raw.value.2016                                                 1.062e-02  6.942e-03   1.530 0.126048    
+X..below.18.years.of.age.raw.value.2016                                  -3.417e-02  1.484e-02  -2.302 0.021413 *  
+Frequent.mental.distress.raw.value.2016                                   6.589e-02  4.514e-02   1.460 0.144494    
+X..not.proficient.in.English.raw.value.2016                               2.318e-02  1.150e-02   2.016 0.043905 *  
+Other.primary.care.providers.raw.value.2016                               2.307e-03  4.930e-03   0.468 0.639849    
+Poor.or.fair.health.raw.value.2016                                        9.771e-03  2.830e-02   0.345 0.729978    
+Unemployment.raw.value.2016                                              -2.320e-02  5.976e-02  -0.388 0.697927    
+Social.associations.raw.value.2016                                        8.327e-04  6.160e-03   0.135 0.892479    
+Adult.smoking.raw.value.2016                                             -5.374e-03  1.364e-02  -0.394 0.693570    
+Physical.inactivity.raw.value.2016                                        2.384e-03  9.009e-03   0.265 0.791348    
+Sexually.transmitted.infections.raw.value.2016                            5.066e-03  7.313e-03   0.693 0.488546    
+Premature.age.adjusted.mortality.raw.value.2016                          -1.569e-02  1.886e-02  -0.832 0.405578    
+Uninsured.children.raw.value.2016                                         5.754e-03  2.904e-02   0.198 0.842959    
+Injury.deaths.raw.value.2016                                             -8.343e-03  7.292e-03  -1.144 0.252708    
+County.Ranked..Yes.1.No.0..2016                                           2.230e-03  4.493e-03   0.496 0.619691    
+X..Asian.raw.value.2016                                                  -1.293e-02  9.844e-03  -1.314 0.189077    
+X..Rural.raw.value.2016                                                  -4.130e-03  9.766e-03  -0.423 0.672460    
+Access.to.exercise.opportunities.raw.value.2016                          -5.226e-03  5.958e-03  -0.877 0.380496    
+Adult.obesity.raw.value.2016                                              7.817e-03  7.783e-03   1.004 0.315296    
+Teen.births.raw.value.2016                                               -2.245e-03  9.954e-03  -0.226 0.821598    
+X2016.HPI.Change                                                         -3.604e-03  4.998e-03  -0.721 0.470934    
+X2016.Personal.income..thousands.of.dollars.                              6.119e-01  7.793e-01   0.785 0.432448    
+X2016.Population..persons..1.                                            -1.243e+01  5.832e+00  -2.132 0.033106 *  
+X2016.Population..persons..1..1                                                  NA         NA      NA       NA    
+Civilian_labor_force_2016                                                 3.576e+01  5.894e+00   6.067 1.53e-09 ***
+Employed_2016                                                            -2.213e+01  5.801e+00  -3.814 0.000140 ***
+Unemployed_2016                                                                  NA         NA      NA       NA    
+Unemployment_rate_2016                                                   -1.698e-02  2.428e-02  -0.699 0.484521    
+Less.than.a.high.school.diploma..2017.21                                 -7.161e-01  2.425e-01  -2.952 0.003185 ** 
+High.school.diploma.only..2017.21                                        -8.051e-01  2.229e-01  -3.612 0.000311 ***
+Some.college.or.associate.s.degree..2017.21                              -1.017e+00  2.504e-01  -4.060 5.07e-05 ***
+Bachelor.s.degree.or.higher..2017.21                                     -1.473e+00  3.110e-01  -4.735 2.33e-06 ***
+Percent.of.adults.with.less.than.a.high.school.diploma..2017.21           1.401e-04  1.457e-02   0.010 0.992330    
+Percent.of.adults.with.a.high.school.diploma.only..2017.21               -8.767e-03  1.564e-02  -0.560 0.575252    
+Percent.of.adults.completing.some.college.or.associate.s.degree..2017.21  3.514e-03  1.115e-02   0.315 0.752793    
+Percent.of.adults.with.a.bachelor.s.degree.or.higher..2017.21                    NA         NA      NA       NA    
+X2017.Real.GDP..thousands.of.chained.2012.dollars.                       -4.441e+00  8.481e-01  -5.236 1.79e-07 ***
+X2017.Chain.type.quantity.indexes.for.real.GDP                            8.780e-03  1.778e-02   0.494 0.621405    
+X2017.Chain.type.quantity.indexes.for.real.GDP..1                                NA         NA      NA       NA    
+Excessive.drinking.raw.value.2017                                         4.724e-03  1.390e-02   0.340 0.733901    
+Median.household.income.raw.value.2017                                    2.019e-02  1.492e-02   1.353 0.176261    
+Food.insecurity.raw.value.2017                                            5.510e-02  1.066e-01   0.517 0.605148    
+Alcohol.impaired.driving.deaths.raw.value.2017                            6.646e-03  5.401e-03   1.231 0.218622    
+Preventable.hospital.stays.raw.value.2017                                -2.718e-03  7.744e-03  -0.351 0.725576    
+Insufficient.sleep.raw.value.2017                                        -1.297e-03  1.086e-02  -0.119 0.904983    
+Children.in.poverty.raw.value.2017                                       -1.080e-02  1.569e-02  -0.688 0.491398    
+X..Hispanic.raw.value.2017                                                2.007e-02  2.062e-02   0.973 0.330415    
+Mammography.screening.raw.value.2017                                      1.700e-03  9.026e-03   0.188 0.850610    
+Long.commute...driving.alone.raw.value.2017                              -1.060e-02  9.261e-03  -1.145 0.252441    
+Food.environment.index.raw.value.2017                                     6.213e-02  1.537e-01   0.404 0.686115    
+Primary.care.physicians.raw.value.2017                                   -7.939e-03  8.329e-03  -0.953 0.340625    
+Diabetes.prevalence.raw.value.2017                                        7.744e-03  1.188e-02   0.652 0.514608    
+Poor.physical.health.days.raw.value.2017                                 -2.744e-02  3.581e-02  -0.766 0.443608    
+Some.college.raw.value.2017                                              -1.023e-02  1.111e-02  -0.921 0.357046    
+Air.pollution...particulate.matter.raw.value.2017                         1.069e-02  1.406e-02   0.760 0.447271    
+Dentists.raw.value.2017                                                  -8.619e-04  9.903e-03  -0.087 0.930653    
+Frequent.physical.distress.raw.value.2017                                 5.585e-02  5.802e-02   0.963 0.335875    
+Limited.access.to.healthy.foods.raw.value.2017                            3.640e-02  1.007e-01   0.361 0.717889    
+X..65.and.older.raw.value.2017                                            2.794e-02  1.676e-02   1.667 0.095702 .  
+Driving.alone.to.work.raw.value.2017                                     -9.794e-03  9.433e-03  -1.038 0.299287    
+Premature.death.raw.value.2017                                           -2.474e-03  1.265e-02  -0.196 0.844996    
+Uninsured.raw.value.2017                                                  1.009e-01  1.849e-01   0.546 0.585183    
+Drinking.water.violations.raw.value.2017                                  1.382e-04  4.262e-03   0.032 0.974134    
+Children.in.single.parent.households.raw.value.2017                       8.836e-03  9.338e-03   0.946 0.344151    
+Violent.crime.raw.value.2017                                             -1.186e-02  9.737e-03  -1.218 0.223338    
+X..Native.Hawaiian.Other.Pacific.Islander.raw.value.2017                  1.199e-02  1.568e-02   0.765 0.444616    
+Poor.mental.health.days.raw.value.2017                                    2.760e-02  3.705e-02   0.745 0.456288    
+Severe.housing.problems.raw.value.2017                                    1.329e-02  1.043e-02   1.274 0.202922    
+Low.birthweight.raw.value.2017                                            1.007e-02  9.593e-03   1.049 0.294134    
+Income.inequality.raw.value.2017                                          6.976e-03  8.119e-03   0.859 0.390311    
+Mental.health.providers.raw.value.2017                                    1.297e-02  1.050e-02   1.235 0.216930    
+Uninsured.adults.raw.value.2017                                          -5.973e-02  1.601e-01  -0.373 0.709198    
+Population.raw.value.2017                                                 1.082e-03  7.011e-03   0.154 0.877391    
+X..Females.raw.value.2017                                                -3.690e-03  9.599e-03  -0.384 0.700682    
+X..below.18.years.of.age.raw.value.2017                                   1.300e-02  1.720e-02   0.756 0.449736    
+Frequent.mental.distress.raw.value.2017                                  -4.717e-02  5.540e-02  -0.851 0.394619    
+X..not.proficient.in.English.raw.value.2017                              -2.071e-03  1.134e-02  -0.183 0.855127    
+Other.primary.care.providers.raw.value.2017                               9.475e-03  8.309e-03   1.140 0.254289    
+Poor.or.fair.health.raw.value.2017                                       -3.704e-02  2.548e-02  -1.454 0.146157    
+Unemployment.raw.value.2017                                               1.494e-02  1.126e-02   1.327 0.184691    
+Social.associations.raw.value.2017                                       -7.018e-03  1.009e-02  -0.695 0.486858    
+Adult.smoking.raw.value.2017                                              1.697e-02  1.558e-02   1.089 0.276125    
+Physical.inactivity.raw.value.2017                                       -3.050e-03  1.132e-02  -0.270 0.787522    
+Sexually.transmitted.infections.raw.value.2017                            8.093e-04  8.149e-03   0.099 0.920893    
+Premature.age.adjusted.mortality.raw.value.2017                          -3.803e-03  1.627e-02  -0.234 0.815160    
+Uninsured.children.raw.value.2017                                        -3.793e-02  4.104e-02  -0.924 0.355504    
+Injury.deaths.raw.value.2017                                             -1.076e-03  9.069e-03  -0.119 0.905605    
+County.Ranked..Yes.1.No.0..2017                                          -1.116e-02  6.526e-03  -1.710 0.087466 .  
+X..Asian.raw.value.2017                                                  -3.467e-02  1.285e-02  -2.699 0.007016 ** 
+X..Rural.raw.value.2017                                                  -1.090e-02  1.307e-02  -0.834 0.404103    
+Access.to.exercise.opportunities.raw.value.2017                          -3.396e-04  6.488e-03  -0.052 0.958265    
+Adult.obesity.raw.value.2017                                             -6.795e-03  9.966e-03  -0.682 0.495464    
+Teen.births.raw.value.2017                                               -1.702e-02  1.239e-02  -1.373 0.169806    
+X2017.HPI.Change                                                         -5.073e-03  4.945e-03  -1.026 0.305013    
+X2017.Personal.income..thousands.of.dollars.                              2.603e+00  8.779e-01   2.964 0.003064 ** 
+X2017.Population..persons..1.                                            -1.949e+01  5.494e+00  -3.547 0.000397 ***
+X2017.Population..persons..1..1                                                  NA         NA      NA       NA    
+Civilian_labor_force_2017                                                 2.157e+00  6.154e+00   0.351 0.725994    
+Employed_2017                                                            -6.929e+00  6.164e+00  -1.124 0.261112    
+Unemployed_2017                                                                  NA         NA      NA       NA    
+Unemployment_rate_2017                                                   -2.889e-02  2.630e-02  -1.098 0.272147    
+X2018.Real.GDP..thousands.of.chained.2012.dollars.                        4.477e+00  1.026e+00   4.364 1.34e-05 ***
+X2018.Chain.type.quantity.indexes.for.real.GDP                           -1.849e-02  1.814e-02  -1.019 0.308177    
+X2018.Chain.type.quantity.indexes.for.real.GDP..1                                NA         NA      NA       NA    
+Excessive.drinking.raw.value.2018                                         1.111e-02  1.407e-02   0.790 0.429651    
+Median.household.income.raw.value.2018                                   -4.231e-02  2.281e-02  -1.855 0.063726 .  
+Food.insecurity.raw.value.2018                                           -1.582e-03  8.663e-02  -0.018 0.985435    
+Alcohol.impaired.driving.deaths.raw.value.2018                           -2.195e-03  7.570e-03  -0.290 0.771861    
+Preventable.hospital.stays.raw.value.2018                                 5.870e-03  8.213e-03   0.715 0.474882    
+Insufficient.sleep.raw.value.2018                                         1.647e-02  1.029e-02   1.601 0.109566    
+Children.in.poverty.raw.value.2018                                        1.866e-03  1.903e-02   0.098 0.921897    
+X..Hispanic.raw.value.2018                                               -6.347e-02  1.680e-01  -0.378 0.705556    
+Mammography.screening.raw.value.2018                                     -9.703e-03  9.897e-03  -0.980 0.326959    
+Long.commute...driving.alone.raw.value.2018                              -2.592e-04  2.627e-02  -0.010 0.992129    
+Food.environment.index.raw.value.2018                                     4.157e-02  1.165e-01   0.357 0.721375    
+Primary.care.physicians.raw.value.2018                                    4.533e-03  1.741e-02   0.260 0.794569    
+Diabetes.prevalence.raw.value.2018                                        4.899e-03  1.635e-02   0.300 0.764496    
+Poor.physical.health.days.raw.value.2018                                  8.367e-04  4.599e-02   0.018 0.985486    
+Some.college.raw.value.2018                                               2.130e-02  2.014e-02   1.057 0.290463    
+Air.pollution...particulate.matter.raw.value.2018                        -1.410e-02  1.720e-02  -0.820 0.412341    
+Dentists.raw.value.2018                                                   1.638e-02  3.015e-02   0.543 0.587120    
+Frequent.physical.distress.raw.value.2018                                 1.028e-02  5.998e-02   0.171 0.863966    
+Limited.access.to.healthy.foods.raw.value.2018                            1.166e-02  2.642e-02   0.442 0.658842    
+X..65.and.older.raw.value.2018                                           -5.689e-02  3.960e-02  -1.437 0.150949    
+Driving.alone.to.work.raw.value.2018                                      1.166e-02  1.854e-02   0.629 0.529705    
+Premature.death.raw.value.2018                                            9.927e-03  1.456e-02   0.682 0.495573    
+Uninsured.raw.value.2018                                                 -6.283e-03  3.272e-01  -0.019 0.984684    
+Drinking.water.violations.raw.value.2018                                  2.991e-03  4.764e-03   0.628 0.530142    
+Children.in.single.parent.households.raw.value.2018                       2.335e-03  1.527e-02   0.153 0.878459    
+Violent.crime.raw.value.2018                                              2.538e-02  1.252e-02   2.027 0.042731 *  
+X..Native.Hawaiian.Other.Pacific.Islander.raw.value.2018                 -1.489e-01  4.508e-02  -3.304 0.000967 ***
+Poor.mental.health.days.raw.value.2018                                   -1.331e-02  3.107e-02  -0.428 0.668415    
+Severe.housing.problems.raw.value.2018                                   -4.200e-03  1.759e-02  -0.239 0.811264    
+Low.birthweight.raw.value.2018                                           -2.127e-02  1.712e-02  -1.242 0.214270    
+Income.inequality.raw.value.2018                                         -4.750e-03  1.203e-02  -0.395 0.693004    
+Mental.health.providers.raw.value.2018                                   -2.390e-02  3.020e-02  -0.792 0.428708    
+Uninsured.adults.raw.value.2018                                          -1.829e-02  2.900e-01  -0.063 0.949718    
+Population.raw.value.2018                                                 9.909e-02  1.298e+00   0.076 0.939144    
+X..Females.raw.value.2018                                                -1.524e-03  2.711e-02  -0.056 0.955172    
+X..below.18.years.of.age.raw.value.2018                                   1.588e-02  4.244e-02   0.374 0.708399    
+Frequent.mental.distress.raw.value.2018                                  -1.014e-02  4.551e-02  -0.223 0.823676    
+X..not.proficient.in.English.raw.value.2018                               1.506e-02  2.918e-02   0.516 0.605794    
+Other.primary.care.providers.raw.value.2018                               4.335e-03  2.303e-02   0.188 0.850677    
+Poor.or.fair.health.raw.value.2018                                        2.808e-03  2.371e-02   0.118 0.905727    
+Unemployment.raw.value.2018                                              -2.501e-02  1.882e-02  -1.329 0.183875    
+Social.associations.raw.value.2018                                       -1.076e-02  2.612e-02  -0.412 0.680365    
+Adult.smoking.raw.value.2018                                             -1.578e-02  1.496e-02  -1.055 0.291441    
+Physical.inactivity.raw.value.2018                                       -1.110e-02  1.453e-02  -0.764 0.444918    
+Sexually.transmitted.infections.raw.value.2018                            1.188e-02  1.006e-02   1.181 0.237694    
+Premature.age.adjusted.mortality.raw.value.2018                          -2.080e-02  2.229e-02  -0.933 0.350874    
+Uninsured.children.raw.value.2018                                         2.385e-02  6.502e-02   0.367 0.713805    
+Injury.deaths.raw.value.2018                                             -2.827e-04  1.468e-02  -0.019 0.984641    
+County.Ranked..Yes.1.No.0..2018                                           2.553e-03  9.974e-03   0.256 0.797993    
+X..Asian.raw.value.2018                                                   5.163e-02  9.780e-02   0.528 0.597593    
+X..Rural.raw.value.2018                                                  -7.783e-04  1.328e-02  -0.059 0.953279    
+Access.to.exercise.opportunities.raw.value.2018                           1.264e-02  9.723e-03   1.300 0.193692    
+Adult.obesity.raw.value.2018                                              7.377e-03  1.329e-02   0.555 0.578907    
+Teen.births.raw.value.2018                                               -3.599e-02  2.505e-02  -1.437 0.150894    
+X2018.HPI.Change                                                         -7.088e-03  4.890e-03  -1.449 0.147401    
+X2018.Personal.income..thousands.of.dollars.                              1.986e+00  8.669e-01   2.291 0.022060 *  
+X2018.Population..persons..1.                                             3.274e+01  4.927e+00   6.645 3.80e-11 ***
+X2018.Population..persons..1..1                                                  NA         NA      NA       NA    
+Civilian_labor_force_2018                                                 1.923e+00  8.336e+00   0.231 0.817536    
+Employed_2018                                                            -4.532e+00  8.371e+00  -0.541 0.588299    
+Unemployed_2018                                                                  NA         NA      NA       NA    
+Unemployment_rate_2018                                                   -3.126e-03  2.559e-02  -0.122 0.902772    
+X2019.Real.GDP..thousands.of.chained.2012.dollars.                       -3.103e+00  8.760e-01  -3.542 0.000405 ***
+X2019.Chain.type.quantity.indexes.for.real.GDP                            1.983e-02  1.976e-02   1.004 0.315602    
+X2019.Chain.type.quantity.indexes.for.real.GDP..1                                NA         NA      NA       NA    
+Excessive.drinking.raw.value.2019                                                NA         NA      NA       NA    
+Median.household.income.raw.value.2019                                    3.443e-02  2.328e-02   1.479 0.139333    
+Food.insecurity.raw.value.2019                                            7.101e-02  9.296e-02   0.764 0.445010    
+Alcohol.impaired.driving.deaths.raw.value.2019                            3.638e-03  8.492e-03   0.428 0.668441    
+Preventable.hospital.stays.raw.value.2019                                 2.229e-03  8.186e-03   0.272 0.785458    
+Insufficient.sleep.raw.value.2019                                                NA         NA      NA       NA    
+Children.in.poverty.raw.value.2019                                       -4.362e-03  1.795e-02  -0.243 0.807998    
+X..Hispanic.raw.value.2019                                               -7.745e-02  2.199e-01  -0.352 0.724694    
+Mammography.screening.raw.value.2019                                      1.854e-02  1.018e-02   1.821 0.068756 .  
+Long.commute...driving.alone.raw.value.2019                              -1.387e-02  3.361e-02  -0.413 0.679832    
+Food.environment.index.raw.value.2019                                     9.174e-02  1.147e-01   0.800 0.423965    
+Primary.care.physicians.raw.value.2019                                   -8.749e-04  2.043e-02  -0.043 0.965851    
+Diabetes.prevalence.raw.value.2019                                       -7.980e-04  1.564e-02  -0.051 0.959299    
+Poor.physical.health.days.raw.value.2019                                         NA         NA      NA       NA    
+Some.college.raw.value.2019                                               5.711e-03  2.490e-02   0.229 0.818602    
+Air.pollution...particulate.matter.raw.value.2019                        -1.395e-02  1.166e-02  -1.197 0.231568    
+Dentists.raw.value.2019                                                  -2.737e-02  3.936e-02  -0.695 0.486857    
+Frequent.physical.distress.raw.value.2019                                        NA         NA      NA       NA    
+Limited.access.to.healthy.foods.raw.value.2019                                   NA         NA      NA       NA    
+X..65.and.older.raw.value.2019                                           -4.020e-03  8.069e-02  -0.050 0.960271    
+Driving.alone.to.work.raw.value.2019                                     -1.104e-02  2.237e-02  -0.493 0.621731    
+Premature.death.raw.value.2019                                            4.104e-03  2.523e-02   0.163 0.870794    
+Uninsured.raw.value.2019                                                  2.887e-01  4.115e-01   0.701 0.483079    
+Drinking.water.violations.raw.value.2019                                  1.510e-03  5.003e-03   0.302 0.762819    
+Children.in.single.parent.households.raw.value.2019                      -6.539e-03  1.777e-02  -0.368 0.712956    
+Violent.crime.raw.value.2019                                             -1.019e-02  9.257e-03  -1.101 0.271073    
+X..Native.Hawaiian.Other.Pacific.Islander.raw.value.2019                  1.058e-01  6.490e-02   1.631 0.103071    
+Poor.mental.health.days.raw.value.2019                                           NA         NA      NA       NA    
+Severe.housing.problems.raw.value.2019                                   -5.825e-03  2.169e-02  -0.269 0.788289    
+Low.birthweight.raw.value.2019                                           -7.923e-03  2.196e-02  -0.361 0.718246    
+Income.inequality.raw.value.2019                                          1.558e-04  1.341e-02   0.012 0.990731    
+Mental.health.providers.raw.value.2019                                    1.304e-02  3.380e-02   0.386 0.699660    
+Uninsured.adults.raw.value.2019                                          -2.268e-01  3.667e-01  -0.619 0.536308    
+Population.raw.value.2019                                                 2.104e-01  1.926e+00   0.109 0.913021    
+X..Females.raw.value.2019                                                -3.566e-03  3.812e-02  -0.094 0.925468    
+X..below.18.years.of.age.raw.value.2019                                  -3.981e-02  6.136e-02  -0.649 0.516544    
+Frequent.mental.distress.raw.value.2019                                          NA         NA      NA       NA    
+X..not.proficient.in.English.raw.value.2019                              -2.499e-02  3.680e-02  -0.679 0.497189    
+Other.primary.care.providers.raw.value.2019                              -1.803e-02  2.764e-02  -0.653 0.514133    
+Poor.or.fair.health.raw.value.2019                                               NA         NA      NA       NA    
+Unemployment.raw.value.2019                                               1.754e-02  2.484e-02   0.706 0.480142    
+Social.associations.raw.value.2019                                        1.215e-02  2.617e-02   0.464 0.642571    
+Adult.smoking.raw.value.2019                                                     NA         NA      NA       NA    
+Physical.inactivity.raw.value.2019                                        1.473e-02  1.522e-02   0.967 0.333473    
+Sexually.transmitted.infections.raw.value.2019                           -8.905e-03  1.253e-02  -0.711 0.477360    
+Premature.age.adjusted.mortality.raw.value.2019                           2.941e-02  3.730e-02   0.788 0.430550    
+Uninsured.children.raw.value.2019                                        -6.926e-02  7.859e-02  -0.881 0.378302    
+Injury.deaths.raw.value.2019                                             -1.123e-02  1.659e-02  -0.677 0.498604    
+County.Ranked..Yes.1.No.0..2019                                          -8.616e-03  1.223e-02  -0.704 0.481393    
+X..Asian.raw.value.2019                                                  -8.901e-02  1.334e-01  -0.667 0.504732    
+X..Rural.raw.value.2019                                                          NA         NA      NA       NA    
+Access.to.exercise.opportunities.raw.value.2019                           3.441e-03  1.687e-02   0.204 0.838435    
+Adult.obesity.raw.value.2019                                             -1.138e-02  1.358e-02  -0.838 0.401991    
+Teen.births.raw.value.2019                                                4.581e-02  3.256e-02   1.407 0.159647    
+X2019.HPI.Change                                                         -9.076e-03  4.983e-03  -1.821 0.068677 .  
+X2019.Personal.income..thousands.of.dollars.                             -7.965e-02  9.316e-01  -0.085 0.931878    
+X2019.Population..persons..1.                                            -2.401e+01  5.925e+00  -4.052 5.25e-05 ***
+X2019.Population..persons..1..1                                                  NA         NA      NA       NA    
+Civilian_labor_force_2019                                                -8.673e+00  5.529e+00  -1.568 0.116925    
+Employed_2019                                                             1.255e+01  5.395e+00   2.326 0.020097 *  
+Unemployed_2019                                                                  NA         NA      NA       NA    
+Unemployment_rate_2019                                                    3.174e-02  1.815e-02   1.749 0.080421 .  
+X2020.Real.GDP..thousands.of.chained.2012.dollars.                       -9.219e-01  7.494e-01  -1.230 0.218765    
+X2020.Chain.type.quantity.indexes.for.real.GDP                           -1.596e-02  1.968e-02  -0.811 0.417613    
+X2020.Chain.type.quantity.indexes.for.real.GDP..1                                NA         NA      NA       NA    
+Excessive.drinking.raw.value.2020                                        -3.596e-03  1.354e-02  -0.266 0.790548    
+Median.household.income.raw.value.2020                                   -2.333e-02  2.283e-02  -1.022 0.306888    
+Food.insecurity.raw.value.2020                                           -5.215e-02  8.794e-02  -0.593 0.553221    
+Alcohol.impaired.driving.deaths.raw.value.2020                           -4.090e-03  6.804e-03  -0.601 0.547817    
+Preventable.hospital.stays.raw.value.2020                                 4.568e-03  8.184e-03   0.558 0.576772    
+Insufficient.sleep.raw.value.2020                                                NA         NA      NA       NA    
+Children.in.poverty.raw.value.2020                                       -2.223e-02  1.721e-02  -1.291 0.196670    
+X..Hispanic.raw.value.2020                                                1.316e-01  1.800e-01   0.731 0.464754    
+Mammography.screening.raw.value.2020                                     -2.506e-03  1.013e-02  -0.247 0.804569    
+Long.commute...driving.alone.raw.value.2020                               2.286e-02  2.295e-02   0.996 0.319186    
+Food.environment.index.raw.value.2020                                    -1.156e-01  1.132e-01  -1.021 0.307135    
+Primary.care.physicians.raw.value.2020                                   -8.336e-04  1.593e-02  -0.052 0.958270    
+Diabetes.prevalence.raw.value.2020                                       -5.627e-03  6.279e-03  -0.896 0.370235    
+Poor.physical.health.days.raw.value.2020                                 -6.196e-02  4.891e-02  -1.267 0.205334    
+Some.college.raw.value.2020                                              -2.575e-02  1.824e-02  -1.412 0.158089    
+Air.pollution...particulate.matter.raw.value.2020                                NA         NA      NA       NA    
+Dentists.raw.value.2020                                                   1.324e-02  2.719e-02   0.487 0.626374    
+Frequent.physical.distress.raw.value.2020                                 1.197e-01  5.935e-02   2.016 0.043892 *  
+Limited.access.to.healthy.foods.raw.value.2020                                   NA         NA      NA       NA    
+X..65.and.older.raw.value.2020                                            4.587e-02  7.151e-02   0.641 0.521315    
+Driving.alone.to.work.raw.value.2020                                      5.526e-05  1.602e-02   0.003 0.997248    
+Premature.death.raw.value.2020                                           -1.045e-02  2.468e-02  -0.423 0.672068    
+Uninsured.raw.value.2020                                                 -2.297e-01  3.832e-01  -0.599 0.548932    
+Drinking.water.violations.raw.value.2020                                  2.551e-03  4.731e-03   0.539 0.589875    
+Children.in.single.parent.households.raw.value.2020                      -8.424e-04  1.226e-02  -0.069 0.945206    
+Violent.crime.raw.value.2020                                                     NA         NA      NA       NA    
+X..Native.Hawaiian.Other.Pacific.Islander.raw.value.2020                  1.065e-02  4.077e-02   0.261 0.793983    
+Poor.mental.health.days.raw.value.2020                                   -2.531e-02  3.483e-02  -0.727 0.467540    
+Severe.housing.problems.raw.value.2020                                    4.467e-03  1.689e-02   0.264 0.791485    
+Low.birthweight.raw.value.2020                                            5.898e-03  1.696e-02   0.348 0.728054    
+Income.inequality.raw.value.2020                                          8.252e-04  1.011e-02   0.082 0.934938    
+Mental.health.providers.raw.value.2020                                   -5.547e-04  1.692e-02  -0.033 0.973855    
+Uninsured.adults.raw.value.2020                                           1.997e-01  3.352e-01   0.596 0.551456    
+Population.raw.value.2020                                                -3.188e-01  7.312e-01  -0.436 0.662926    
+X..Females.raw.value.2020                                                 6.341e-04  3.219e-02   0.020 0.984287    
+X..below.18.years.of.age.raw.value.2020                                   3.001e-02  4.618e-02   0.650 0.515836    
+Frequent.mental.distress.raw.value.2020                                  -2.935e-02  5.224e-02  -0.562 0.574250    
+X..not.proficient.in.English.raw.value.2020                              -3.659e-03  2.515e-02  -0.145 0.884336    
+Other.primary.care.providers.raw.value.2020                               2.923e-03  1.926e-02   0.152 0.879371    
+Poor.or.fair.health.raw.value.2020                                        1.512e-02  2.437e-02   0.620 0.535161    
+Unemployment.raw.value.2020                                              -2.621e-02  1.842e-02  -1.423 0.155006    
+Social.associations.raw.value.2020                                       -4.041e-03  9.309e-03  -0.434 0.664289    
+Adult.smoking.raw.value.2020                                             -2.109e-02  1.770e-02  -1.191 0.233594    
+Physical.inactivity.raw.value.2020                                        7.456e-04  8.711e-03   0.086 0.931795    
+Sexually.transmitted.infections.raw.value.2020                           -2.829e-03  1.033e-02  -0.274 0.784235    
+Premature.age.adjusted.mortality.raw.value.2020                           1.646e-02  3.097e-02   0.531 0.595227    
+Uninsured.children.raw.value.2020                                         3.484e-02  7.870e-02   0.443 0.657992    
+Injury.deaths.raw.value.2020                                              1.137e-02  1.155e-02   0.985 0.324839    
+County.Ranked..Yes.1.No.0..2020                                           1.349e-02  1.105e-02   1.220 0.222473    
+X..Asian.raw.value.2020                                                   6.425e-02  8.780e-02   0.732 0.464411    
+X..Rural.raw.value.2020                                                          NA         NA      NA       NA    
+Access.to.exercise.opportunities.raw.value.2020                          -1.477e-02  1.577e-02  -0.937 0.349064    
+Adult.obesity.raw.value.2020                                              3.201e-03  7.493e-03   0.427 0.669254    
+Teen.births.raw.value.2020                                               -1.195e-03  2.613e-02  -0.046 0.963543    
+X2020.HPI.Change                                                         -9.050e-03  4.774e-03  -1.895 0.058160 .  
+X2020.Personal.income..thousands.of.dollars.                              2.965e+00  1.218e+00   2.434 0.015025 *  
+X2020.Population..persons..1.                                            -2.216e+01  4.982e+00  -4.448 9.10e-06 ***
+X2020.Population..persons..1..1                                                  NA         NA      NA       NA    
+Civilian_labor_force_2020                                                 2.066e+00  1.275e+00   1.620 0.105347    
+Employed_2020                                                            -7.288e+00  1.050e+00  -6.938 5.20e-12 ***
+Unemployed_2020                                                                  NA         NA      NA       NA    
+Unemployment_rate_2020                                                   -1.697e-02  1.240e-02  -1.368 0.171333    
+Median_Household_Income_2020                                              4.942e-02  2.004e-02   2.466 0.013755 *  
+Med_HH_Income_Percent_of_State_Total_2020                                -2.683e-02  1.296e-02  -2.070 0.038531 *  
+X2021.Real.GDP..thousands.of.chained.2012.dollars.                        2.176e+00  5.697e-01   3.821 0.000137 ***
+X2021.Chain.type.quantity.indexes.for.real.GDP                            9.994e-03  1.567e-02   0.638 0.523600    
+X2021.Chain.type.quantity.indexes.for.real.GDP..1                                NA         NA      NA       NA    
+X2021.HPI.Change                                                         -7.148e-03  5.418e-03  -1.319 0.187200    
+X2021.Personal.income..thousands.of.dollars.                             -4.631e+00  8.875e-01  -5.218 1.97e-07 ***
+X2021.Population..persons..1.                                             4.586e+01  1.957e+00  23.438  < 2e-16 ***
+X2021.Population..persons..1..1                                                  NA         NA      NA       NA    
+Civilian_labor_force_2021                                                -1.487e+01  1.917e+00  -7.757 1.31e-14 ***
+Employed_2021                                                             1.372e+01  1.716e+00   7.997 2.02e-15 ***
+Unemployed_2021                                                                  NA         NA      NA       NA    
+Unemployment_rate_2021                                                    1.260e-02  1.345e-02   0.937 0.349074    
+X2022.HPI.Change                                                          3.006e-03  4.586e-03   0.655 0.512254    
+---
+Signif. codes:  0 '***' 0.001 '**' 0.01 '*' 0.05 '.' 0.1 ' ' 1
+
+Residual standard error: 0.1791 on 2238 degrees of freedom
+Multiple R-squared:  0.9736,	Adjusted R-squared:  0.9679 
+F-statistic: 172.7 on 477 and 2238 DF,  p-value: < 2.2e-16

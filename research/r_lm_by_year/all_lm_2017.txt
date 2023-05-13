@@ -1,0 +1,91 @@
+
+Call:
+lm(formula = NPOPCHG2022 ~ ., data = data)
+
+Residuals:
+    Min      1Q  Median      3Q     Max 
+-8.7055 -0.1750 -0.0018  0.1521 11.9808 
+
+Coefficients: (4 not defined because of singularities)
+                                                                           Estimate Std. Error t value Pr(>|t|)    
+(Intercept)                                                               7.077e-16  1.496e-02   0.000 1.000000    
+Less.than.a.high.school.diploma..2017.21                                 -1.036e+00  1.094e-01  -9.476  < 2e-16 ***
+High.school.diploma.only..2017.21                                        -4.018e-01  1.286e-01  -3.124 0.001804 ** 
+Some.college.or.associate.s.degree..2017.21                               2.138e+00  1.756e-01  12.170  < 2e-16 ***
+Bachelor.s.degree.or.higher..2017.21                                     -1.411e+00  2.244e-01  -6.287 3.77e-10 ***
+Percent.of.adults.with.less.than.a.high.school.diploma..2017.21          -8.185e-02  2.119e-02  -3.863 0.000115 ***
+Percent.of.adults.with.a.high.school.diploma.only..2017.21               -9.312e-02  2.066e-02  -4.507 6.86e-06 ***
+Percent.of.adults.completing.some.college.or.associate.s.degree..2017.21 -1.416e-01  2.114e-02  -6.700 2.54e-11 ***
+Percent.of.adults.with.a.bachelor.s.degree.or.higher..2017.21                    NA         NA      NA       NA    
+X2017.Real.GDP..thousands.of.chained.2012.dollars.                        8.251e-01  7.666e-02  10.763  < 2e-16 ***
+X2017.Chain.type.quantity.indexes.for.real.GDP                            4.250e-02  1.560e-02   2.725 0.006479 ** 
+X2017.Chain.type.quantity.indexes.for.real.GDP..1                                NA         NA      NA       NA    
+Excessive.drinking.raw.value.2017                                         2.832e-02  3.035e-02   0.933 0.350735    
+Median.household.income.raw.value.2017                                   -3.466e-03  4.037e-02  -0.086 0.931594    
+Food.insecurity.raw.value.2017                                           -2.860e-02  4.128e-01  -0.069 0.944780    
+Alcohol.impaired.driving.deaths.raw.value.2017                            1.368e-02  1.573e-02   0.870 0.384256    
+Preventable.hospital.stays.raw.value.2017                                 4.020e-02  2.130e-02   1.888 0.059191 .  
+Insufficient.sleep.raw.value.2017                                         4.235e-02  3.283e-02   1.290 0.197150    
+Children.in.poverty.raw.value.2017                                       -3.220e-02  4.781e-02  -0.674 0.500655    
+X..Hispanic.raw.value.2017                                                6.505e-02  4.510e-02   1.442 0.149381    
+Mammography.screening.raw.value.2017                                      2.780e-02  1.980e-02   1.404 0.160521    
+Long.commute...driving.alone.raw.value.2017                               5.326e-02  2.302e-02   2.313 0.020789 *  
+Food.environment.index.raw.value.2017                                    -1.977e-01  6.017e-01  -0.329 0.742539    
+Primary.care.physicians.raw.value.2017                                    7.574e-03  2.211e-02   0.343 0.731918    
+Diabetes.prevalence.raw.value.2017                                        5.031e-02  3.563e-02   1.412 0.158036    
+Poor.physical.health.days.raw.value.2017                                  2.061e-03  1.278e-01   0.016 0.987137    
+Some.college.raw.value.2017                                               6.116e-02  3.060e-02   1.999 0.045737 *  
+Air.pollution...particulate.matter.raw.value.2017                        -7.573e-02  2.410e-02  -3.142 0.001694 ** 
+Dentists.raw.value.2017                                                  -5.126e-03  2.056e-02  -0.249 0.803174    
+Frequent.physical.distress.raw.value.2017                                 1.582e-01  1.936e-01   0.817 0.413963    
+Limited.access.to.healthy.foods.raw.value.2017                           -1.304e-01  3.945e-01  -0.330 0.741081    
+X..65.and.older.raw.value.2017                                            3.048e-02  3.952e-02   0.771 0.440640    
+Driving.alone.to.work.raw.value.2017                                      6.686e-02  2.176e-02   3.073 0.002141 ** 
+Premature.death.raw.value.2017                                            4.200e-02  4.411e-02   0.952 0.341176    
+Uninsured.raw.value.2017                                                  8.837e-01  5.229e-01   1.690 0.091142 .  
+Drinking.water.violations.raw.value.2017                                 -1.581e-02  1.613e-02  -0.981 0.326854    
+Children.in.single.parent.households.raw.value.2017                      -5.072e-02  2.726e-02  -1.861 0.062879 .  
+Violent.crime.raw.value.2017                                              3.370e-02  2.006e-02   1.680 0.093045 .  
+X..Native.Hawaiian.Other.Pacific.Islander.raw.value.2017                 -7.895e-02  1.896e-02  -4.165 3.21e-05 ***
+Poor.mental.health.days.raw.value.2017                                   -5.449e-02  1.268e-01  -0.430 0.667302    
+Severe.housing.problems.raw.value.2017                                   -1.705e-03  2.669e-02  -0.064 0.949079    
+Low.birthweight.raw.value.2017                                           -2.278e-02  2.562e-02  -0.889 0.373993    
+Income.inequality.raw.value.2017                                         -6.966e-03  2.258e-02  -0.308 0.757741    
+Mental.health.providers.raw.value.2017                                   -3.457e-02  1.923e-02  -1.798 0.072307 .  
+Uninsured.adults.raw.value.2017                                          -7.097e-01  4.557e-01  -1.557 0.119552    
+Population.raw.value.2017                                                -2.685e-02  1.667e-02  -1.611 0.107379    
+X..Females.raw.value.2017                                                -2.951e-02  2.445e-02  -1.207 0.227531    
+X..below.18.years.of.age.raw.value.2017                                   6.116e-02  4.562e-02   1.341 0.180165    
+Frequent.mental.distress.raw.value.2017                                  -1.566e-02  1.773e-01  -0.088 0.929626    
+X..not.proficient.in.English.raw.value.2017                               3.844e-02  3.387e-02   1.135 0.256408    
+Other.primary.care.providers.raw.value.2017                               9.614e-03  1.865e-02   0.515 0.606292    
+Poor.or.fair.health.raw.value.2017                                       -1.102e-01  7.779e-02  -1.417 0.156675    
+Unemployment.raw.value.2017                                              -5.743e-02  2.582e-02  -2.224 0.026242 *  
+Social.associations.raw.value.2017                                        2.165e-02  2.137e-02   1.013 0.310919    
+Adult.smoking.raw.value.2017                                             -1.114e-02  4.497e-02  -0.248 0.804366    
+Physical.inactivity.raw.value.2017                                        3.666e-02  3.204e-02   1.144 0.252627    
+Sexually.transmitted.infections.raw.value.2017                            9.914e-04  2.455e-02   0.040 0.967795    
+Premature.age.adjusted.mortality.raw.value.2017                           3.556e-03  5.100e-02   0.070 0.944410    
+Uninsured.children.raw.value.2017                                        -8.407e-02  1.117e-01  -0.753 0.451730    
+Injury.deaths.raw.value.2017                                             -4.688e-02  2.595e-02  -1.807 0.070944 .  
+County.Ranked..Yes.1.No.0..2017                                           2.360e-02  1.803e-02   1.309 0.190499    
+X..Asian.raw.value.2017                                                  -4.944e-03  2.642e-02  -0.187 0.851572    
+X..Rural.raw.value.2017                                                  -4.893e-02  3.110e-02  -1.573 0.115783    
+Access.to.exercise.opportunities.raw.value.2017                          -9.875e-03  2.282e-02  -0.433 0.665213    
+Adult.obesity.raw.value.2017                                             -3.488e-02  2.936e-02  -1.188 0.234914    
+Teen.births.raw.value.2017                                                2.675e-03  3.475e-02   0.077 0.938659    
+X2017.HPI.Change                                                          4.008e-02  1.600e-02   2.505 0.012291 *  
+X2017.Personal.income..thousands.of.dollars.                             -4.489e-01  1.681e-01  -2.671 0.007612 ** 
+X2017.Population..persons..1.                                             1.088e+00  5.417e-01   2.009 0.044618 *  
+X2017.Population..persons..1..1                                                  NA         NA      NA       NA    
+Civilian_labor_force_2017                                                -2.421e+01  2.808e+00  -8.621  < 2e-16 ***
+Employed_2017                                                             2.324e+01  2.674e+00   8.693  < 2e-16 ***
+Unemployed_2017                                                                  NA         NA      NA       NA    
+Unemployment_rate_2017                                                    5.460e-02  1.965e-02   2.778 0.005508 ** 
+---
+Signif. codes:  0 '***' 0.001 '**' 0.01 '*' 0.05 '.' 0.1 ' ' 1
+
+Residual standard error: 0.7798 on 2646 degrees of freedom
+Multiple R-squared:  0.4077,	Adjusted R-squared:  0.3922 
+F-statistic: 26.39 on 69 and 2646 DF,  p-value: < 2.2e-16
+

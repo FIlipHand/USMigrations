@@ -1,0 +1,85 @@
+
+Call:
+lm(formula = NPOPCHG2022 ~ ., data = data)
+
+Residuals:
+     Min       1Q   Median       3Q      Max 
+-10.9158  -0.1693   0.0000   0.1532  13.8383 
+
+Coefficients: (3 not defined because of singularities)
+                                                           Estimate Std. Error t value Pr(>|t|)    
+(Intercept)                                              -7.916e-16  1.419e-02   0.000  1.00000    
+X2020.Real.GDP..thousands.of.chained.2012.dollars.        7.470e-01  6.105e-02  12.236  < 2e-16 ***
+X2020.Chain.type.quantity.indexes.for.real.GDP            5.937e-02  1.519e-02   3.908 9.52e-05 ***
+X2020.Chain.type.quantity.indexes.for.real.GDP..1                NA         NA      NA       NA    
+Excessive.drinking.raw.value.2020                         1.395e-02  2.576e-02   0.541  0.58823    
+Median.household.income.raw.value.2020                   -4.076e-02  3.765e-02  -1.083  0.27907    
+Food.insecurity.raw.value.2020                            1.013e-01  9.917e-02   1.021  0.30724    
+Alcohol.impaired.driving.deaths.raw.value.2020            9.902e-03  1.506e-02   0.658  0.51083    
+Preventable.hospital.stays.raw.value.2020                 4.786e-02  1.836e-02   2.607  0.00919 ** 
+Insufficient.sleep.raw.value.2020                         5.739e-02  2.865e-02   2.003  0.04525 *  
+Children.in.poverty.raw.value.2020                       -4.734e-02  4.323e-02  -1.095  0.27360    
+X..Hispanic.raw.value.2020                                1.219e-01  3.977e-02   3.066  0.00219 ** 
+Mammography.screening.raw.value.2020                      1.049e-02  2.098e-02   0.500  0.61716    
+Long.commute...driving.alone.raw.value.2020               5.800e-02  2.159e-02   2.687  0.00726 ** 
+Food.environment.index.raw.value.2020                     2.361e-02  1.395e-01   0.169  0.86563    
+Primary.care.physicians.raw.value.2020                    3.505e-02  2.094e-02   1.674  0.09429 .  
+Diabetes.prevalence.raw.value.2020                       -1.317e-02  1.990e-02  -0.662  0.50820    
+Poor.physical.health.days.raw.value.2020                 -1.625e-01  1.481e-01  -1.097  0.27273    
+Some.college.raw.value.2020                               2.037e-02  2.822e-02   0.722  0.47046    
+Air.pollution...particulate.matter.raw.value.2020        -8.697e-02  2.122e-02  -4.098 4.29e-05 ***
+Dentists.raw.value.2020                                  -2.311e-03  1.875e-02  -0.123  0.90194    
+Frequent.physical.distress.raw.value.2020                 3.341e-01  1.767e-01   1.891  0.05874 .  
+Limited.access.to.healthy.foods.raw.value.2020           -3.945e-05  8.936e-02   0.000  0.99965    
+X..65.and.older.raw.value.2020                            4.687e-02  3.411e-02   1.374  0.16945    
+Driving.alone.to.work.raw.value.2020                      4.100e-02  2.037e-02   2.013  0.04422 *  
+Premature.death.raw.value.2020                           -6.297e-02  5.716e-02  -1.102  0.27072    
+Uninsured.raw.value.2020                                  1.006e+00  5.088e-01   1.977  0.04817 *  
+Drinking.water.violations.raw.value.2020                 -2.654e-02  1.519e-02  -1.747  0.08080 .  
+Children.in.single.parent.households.raw.value.2020      -2.602e-02  2.571e-02  -1.012  0.31174    
+Violent.crime.raw.value.2020                              2.269e-02  1.827e-02   1.242  0.21431    
+X..Native.Hawaiian.Other.Pacific.Islander.raw.value.2020 -2.742e-02  1.737e-02  -1.579  0.11449    
+Poor.mental.health.days.raw.value.2020                   -3.472e-02  1.057e-01  -0.329  0.74252    
+Severe.housing.problems.raw.value.2020                    2.340e-02  2.430e-02   0.963  0.33561    
+Low.birthweight.raw.value.2020                           -5.142e-02  2.356e-02  -2.182  0.02918 *  
+Income.inequality.raw.value.2020                         -3.351e-02  2.076e-02  -1.614  0.10664    
+Mental.health.providers.raw.value.2020                   -2.907e-02  1.868e-02  -1.556  0.11981    
+Uninsured.adults.raw.value.2020                          -7.414e-01  4.381e-01  -1.692  0.09070 .  
+Population.raw.value.2020                                -1.862e-02  1.523e-02  -1.223  0.22142    
+X..Females.raw.value.2020                                -4.137e-02  2.254e-02  -1.835  0.06663 .  
+X..below.18.years.of.age.raw.value.2020                   3.653e-02  3.810e-02   0.959  0.33772    
+Frequent.mental.distress.raw.value.2020                  -1.161e-01  1.411e-01  -0.823  0.41060    
+X..not.proficient.in.English.raw.value.2020              -5.371e-02  2.973e-02  -1.807  0.07095 .  
+Other.primary.care.providers.raw.value.2020              -2.938e-02  1.862e-02  -1.578  0.11471    
+Poor.or.fair.health.raw.value.2020                       -8.255e-02  6.859e-02  -1.203  0.22893    
+Unemployment.raw.value.2020                              -5.184e-02  2.193e-02  -2.363  0.01818 *  
+Social.associations.raw.value.2020                       -7.022e-03  1.827e-02  -0.384  0.70078    
+Adult.smoking.raw.value.2020                              1.919e-02  4.548e-02   0.422  0.67305    
+Physical.inactivity.raw.value.2020                        2.611e-02  2.314e-02   1.128  0.25925    
+Sexually.transmitted.infections.raw.value.2020           -1.558e-02  2.058e-02  -0.757  0.44900    
+Premature.age.adjusted.mortality.raw.value.2020           9.420e-02  6.516e-02   1.446  0.14842    
+Uninsured.children.raw.value.2020                        -2.098e-01  1.071e-01  -1.959  0.05022 .  
+Injury.deaths.raw.value.2020                              2.255e-02  2.384e-02   0.946  0.34425    
+County.Ranked..Yes.1.No.0..2020                           7.301e-04  1.743e-02   0.042  0.96659    
+X..Asian.raw.value.2020                                  -3.626e-03  2.491e-02  -0.146  0.88425    
+X..Rural.raw.value.2020                                  -8.272e-02  2.856e-02  -2.896  0.00381 ** 
+Access.to.exercise.opportunities.raw.value.2020           1.440e-02  2.153e-02   0.669  0.50358    
+Adult.obesity.raw.value.2020                             -5.487e-02  2.040e-02  -2.690  0.00720 ** 
+Teen.births.raw.value.2020                                1.778e-02  2.987e-02   0.595  0.55177    
+X2020.HPI.Change                                          8.236e-03  1.493e-02   0.552  0.58128    
+X2020.Personal.income..thousands.of.dollars.             -1.782e+00  1.192e-01 -14.949  < 2e-16 ***
+X2020.Population..persons..1.                             1.899e+00  2.753e-01   6.897 6.62e-12 ***
+X2020.Population..persons..1..1                                  NA         NA      NA       NA    
+Civilian_labor_force_2020                                -2.198e+01  7.520e-01 -29.229  < 2e-16 ***
+Employed_2020                                             2.098e+01  6.096e-01  34.412  < 2e-16 ***
+Unemployed_2020                                                  NA         NA      NA       NA    
+Unemployment_rate_2020                                    9.052e-02  1.839e-02   4.922 9.07e-07 ***
+Median_Household_Income_2020                              1.226e-02  3.770e-02   0.325  0.74506    
+Med_HH_Income_Percent_of_State_Total_2020                 1.085e-01  3.323e-02   3.264  0.00111 ** 
+---
+Signif. codes:  0 '***' 0.001 '**' 0.01 '*' 0.05 '.' 0.1 ' ' 1
+
+Residual standard error: 0.7394 on 2651 degrees of freedom
+Multiple R-squared:  0.4663,	Adjusted R-squared:  0.4535 
+F-statistic:  36.2 on 64 and 2651 DF,  p-value: < 2.2e-16
+

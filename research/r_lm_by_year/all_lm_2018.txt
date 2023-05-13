@@ -1,0 +1,83 @@
+
+Call:
+lm(formula = NPOPCHG2022 ~ ., data = data)
+
+Residuals:
+     Min       1Q   Median       3Q      Max 
+-12.3491  -0.2102  -0.0382   0.1255  12.7090 
+
+Coefficients: (3 not defined because of singularities)
+                                                           Estimate Std. Error t value Pr(>|t|)    
+(Intercept)                                              -3.887e-16  1.715e-02   0.000 1.000000    
+X2018.Real.GDP..thousands.of.chained.2012.dollars.        8.705e-01  8.198e-02  10.618  < 2e-16 ***
+X2018.Chain.type.quantity.indexes.for.real.GDP            7.455e-02  1.798e-02   4.147 3.48e-05 ***
+X2018.Chain.type.quantity.indexes.for.real.GDP..1                NA         NA      NA       NA    
+Excessive.drinking.raw.value.2018                         5.909e-02  3.219e-02   1.835 0.066551 .  
+Median.household.income.raw.value.2018                   -6.523e-03  4.561e-02  -0.143 0.886271    
+Food.insecurity.raw.value.2018                            1.597e-01  1.248e-01   1.279 0.200933    
+Alcohol.impaired.driving.deaths.raw.value.2018           -2.007e-02  1.812e-02  -1.107 0.268274    
+Preventable.hospital.stays.raw.value.2018                 2.079e-02  2.385e-02   0.872 0.383449    
+Insufficient.sleep.raw.value.2018                         8.091e-02  3.577e-02   2.262 0.023759 *  
+Children.in.poverty.raw.value.2018                       -6.666e-02  5.318e-02  -1.253 0.210201    
+X..Hispanic.raw.value.2018                                2.035e-01  5.105e-02   3.986 6.90e-05 ***
+Mammography.screening.raw.value.2018                     -1.064e-03  2.292e-02  -0.046 0.962992    
+Long.commute...driving.alone.raw.value.2018               4.850e-02  2.659e-02   1.824 0.068264 .  
+Food.environment.index.raw.value.2018                     5.479e-02  1.759e-01   0.311 0.755503    
+Primary.care.physicians.raw.value.2018                    4.421e-02  2.498e-02   1.769 0.076927 .  
+Diabetes.prevalence.raw.value.2018                        1.136e-01  4.140e-02   2.744 0.006109 ** 
+Poor.physical.health.days.raw.value.2018                  2.447e-01  1.739e-01   1.407 0.159570    
+Some.college.raw.value.2018                               1.799e-02  3.489e-02   0.515 0.606300    
+Air.pollution...particulate.matter.raw.value.2018        -1.117e-01  2.675e-02  -4.176 3.07e-05 ***
+Dentists.raw.value.2018                                   4.631e-03  2.309e-02   0.201 0.841067    
+Frequent.physical.distress.raw.value.2018                -1.310e-01  2.310e-01  -0.567 0.570788    
+Limited.access.to.healthy.foods.raw.value.2018            3.448e-02  1.133e-01   0.304 0.760892    
+X..65.and.older.raw.value.2018                            1.751e-02  4.263e-02   0.411 0.681230    
+Driving.alone.to.work.raw.value.2018                      3.520e-02  2.485e-02   1.416 0.156869    
+Premature.death.raw.value.2018                           -2.018e-02  5.211e-02  -0.387 0.698541    
+Uninsured.raw.value.2018                                  7.969e-01  5.755e-01   1.385 0.166306    
+Drinking.water.violations.raw.value.2018                 -4.642e-02  1.828e-02  -2.539 0.011158 *  
+Children.in.single.parent.households.raw.value.2018      -3.614e-02  3.082e-02  -1.173 0.240973    
+Violent.crime.raw.value.2018                              2.803e-02  2.290e-02   1.224 0.220942    
+X..Native.Hawaiian.Other.Pacific.Islander.raw.value.2018 -6.985e-02  2.140e-02  -3.263 0.001115 ** 
+Poor.mental.health.days.raw.value.2018                   -3.745e-01  1.119e-01  -3.347 0.000828 ***
+Severe.housing.problems.raw.value.2018                   -1.156e-02  2.959e-02  -0.391 0.695967    
+Low.birthweight.raw.value.2018                           -5.155e-02  2.975e-02  -1.733 0.083228 .  
+Income.inequality.raw.value.2018                         -5.206e-02  2.595e-02  -2.006 0.044937 *  
+Mental.health.providers.raw.value.2018                   -4.043e-02  2.210e-02  -1.829 0.067474 .  
+Uninsured.adults.raw.value.2018                          -6.610e-01  5.070e-01  -1.304 0.192458    
+Population.raw.value.2018                                -2.054e-02  1.834e-02  -1.120 0.262834    
+X..Females.raw.value.2018                                -6.620e-02  2.806e-02  -2.359 0.018379 *  
+X..below.18.years.of.age.raw.value.2018                   4.165e-02  4.581e-02   0.909 0.363353    
+Frequent.mental.distress.raw.value.2018                   4.390e-01  1.592e-01   2.757 0.005876 ** 
+X..not.proficient.in.English.raw.value.2018              -7.149e-02  3.695e-02  -1.935 0.053101 .  
+Other.primary.care.providers.raw.value.2018              -4.135e-02  2.162e-02  -1.912 0.055931 .  
+Poor.or.fair.health.raw.value.2018                       -1.223e-01  8.566e-02  -1.427 0.153581    
+Unemployment.raw.value.2018                              -1.645e-02  2.584e-02  -0.637 0.524398    
+Social.associations.raw.value.2018                        1.873e-02  2.409e-02   0.778 0.436859    
+Adult.smoking.raw.value.2018                             -9.544e-02  4.939e-02  -1.932 0.053455 .  
+Physical.inactivity.raw.value.2018                        3.270e-02  3.451e-02   0.948 0.343441    
+Sexually.transmitted.infections.raw.value.2018            4.313e-04  2.691e-02   0.016 0.987215    
+Premature.age.adjusted.mortality.raw.value.2018           1.151e-02  5.632e-02   0.204 0.838054    
+Uninsured.children.raw.value.2018                        -1.211e-01  1.168e-01  -1.036 0.300109    
+Injury.deaths.raw.value.2018                             -2.585e-03  2.903e-02  -0.089 0.929041    
+County.Ranked..Yes.1.No.0..2018                           3.043e-02  2.047e-02   1.486 0.137299    
+X..Asian.raw.value.2018                                   7.184e-03  3.029e-02   0.237 0.812508    
+X..Rural.raw.value.2018                                  -1.057e-01  3.488e-02  -3.030 0.002471 ** 
+Access.to.exercise.opportunities.raw.value.2018           5.618e-03  2.450e-02   0.229 0.818633    
+Adult.obesity.raw.value.2018                             -4.982e-02  3.238e-02  -1.539 0.124021    
+Teen.births.raw.value.2018                                1.866e-02  3.723e-02   0.501 0.616253    
+X2018.HPI.Change                                          4.336e-02  1.814e-02   2.390 0.016905 *  
+X2018.Personal.income..thousands.of.dollars.             -1.778e+00  1.471e-01 -12.085  < 2e-16 ***
+X2018.Population..persons..1.                             1.837e+00  3.590e-01   5.118 3.31e-07 ***
+X2018.Population..persons..1..1                                  NA         NA      NA       NA    
+Civilian_labor_force_2018                                -4.835e+01  2.951e+00 -16.384  < 2e-16 ***
+Employed_2018                                             4.728e+01  2.788e+00  16.958  < 2e-16 ***
+Unemployed_2018                                                  NA         NA      NA       NA    
+Unemployment_rate_2018                                    3.303e-02  2.109e-02   1.566 0.117460    
+---
+Signif. codes:  0 '***' 0.001 '**' 0.01 '*' 0.05 '.' 0.1 ' ' 1
+
+Residual standard error: 0.8938 on 2653 degrees of freedom
+Multiple R-squared:  0.2197,	Adjusted R-squared:  0.2014 
+F-statistic: 12.05 on 62 and 2653 DF,  p-value: < 2.2e-16
+
