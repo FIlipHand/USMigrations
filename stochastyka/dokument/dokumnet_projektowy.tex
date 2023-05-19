@@ -10,6 +10,7 @@
 \graphicspath{{.}}
 \usepackage{amssymb}
 \usepackage{amsmath}
+\usepackage{tikz}
 
 \newcommand{\softmax}{\mathrm{softmax}}
 
@@ -65,11 +66,32 @@ Do modelowania samej migracji wykorzystywane od dawna był wykorzystywany model 
 
 
 \section*{Dane użyte przy realizacji projektu}
-Dane pochodzą z instytucji rządowych, przez co mamy pewność że są wiarygodne.
+Cechy, które zdecydowaliśmy się użyć to:
+\begin{enumerate}
+    \item Procent ludzi w danym hrabstwie z wykształceniem wyższym
+    \item Zmiana indeksu HPI (\textit{House price index}), mówiący o zmianie cen mieszkań
+    \item Średni przychód w hrabstwie
+    \item Bezrobocie w hrabstwie
+    \item Stan zdrowia
+    \item Stan zdrowia psychicznego
+    \item Ilość przestępczości
+    \item Wartość dotycząca problemów ze znalezieniem zamieszkania
+    \item Indeks nierówności społecznych
+    \item Wartość opisująca dostępność miejsc do ćwiczeń
+\end{enumerate}
 
-Kiedy podejmiemy ostateczną decyzję na temat jakie cechy będą opisywały hrabstwa oraz ludzi, opiszemy je w tym miejscu. Chcemy mieć pewność, że cechy nie będą ze sobą korelowały, przez co losowanie ich będzie niezależne.
+Dane pochodzą z instytucji rządowych, przez co mamy pewność że są wiarygodne. Opisują stan rzeczy na rok 2016.\\
 
-\newpage
+Aby móc wylosować cechy konkretniej osoby, należy najpierw znaleźć odpowiednią dystrybucję do każdej z cech. Nie możemy \textit{a-priori} założyć że wszystkie dane pochodzą na przykład z rozkładu normalnego, gdzie średnia to wartość cechy danego hrabstwa.
+
+Na stan obecny, udało nam się odszukać odpowiednie dystrybucje, które reprezentują dene na poziome całych stanów zjednoczonych, co zostało pokazane na grafice poniżej.
+
+\begin{center}
+    \includegraphics*[width=15cm]{./pictures/distributions.png}
+\end{center}
+
+Kolejnym krokiem w projekcie, jest dokonanie parametryzacji dystrybucji dla każdego hrabstwa, tak aby wartość oczekiwana zgadzała się z wartością, która mamy w danych, a kształt krzywej był jak najbardziej podobny do tej, która została przedstawiona dla wszystkich hrabstw.
+
 \section*{Kroki przy realizacji projektu}
 \subsection*{Wybór cech wpływających na migrację w danym hrabstwie}
 Mając dane dotyczące ilości osób które migrują z danego hrabstwa do innych hrabstw, jesteśmy w stanie dowiedzieć się, które cechy z jaką siłą wpływają na migrację ludności. Oczywiste jest to, że w każdym hrabstwie będą to inne cechy, dlatego prezentujemy takie podejście do rozwiązania tego problemu.
@@ -79,34 +101,189 @@ Każde hrabstwo jest przedstawione przy pomocy wektora cech o stałym rozmiarze 
     \item $h_A$ - macierz cech hrabstwa z którego emigracje rozważamy
     \item $h_1, h_2, \dots, h_k$ - macierze cech hrabstw, do których mieszkańcy hrabstwa A emigrowali
 \end{itemize}
-Dla każdego hrabstwa od 1 do $k$ posiadamy dane dotyczące ile osób z hrabstwa $A$ wyemigrowało do każdego z pozostałych. Wpiszmy te dane do wektora $d$. Aby obliczyć prawdopodobieństwa stosunku migraci używamy funkcji softmax, która zamieni nasz wektor w wektor prawdopodobieństw.
+Dla każdego hrabstwa od 1 do $k$ posiadamy dane dotyczące ile osób z hrabstwa $A$ wyemigrowało do każdego z pozostałych. Wpiszmy te dane do wektora $d$. Aby obliczyć prawdopodobieństwa stosunku migracji używamy funkcji softmax, która zamieni nasz wektor w wektor prawdopodobieństw.
 \begin{equation}
     t = \softmax(d)
 \end{equation}
 
-Jeżeli każde hrabstwo jest opisywane przez wektor o stałej długości, jesteśmy w stanie wszystkie hrabstwa nanieść na $N$-wymiarową przestrzeń. Osoba zamieszkująca dane hrabstwo jest opisywana przy pomocy takiej samej liczby cech co wektor dla hrabstwa. Osoby, które są bardziej skłonne do migracji, po naniesieniu ich wektora cech na przestrzeń, będą znajdywały się dalej od rodzinnego hrabstwa, odległość ta determinuje skłonność do migracji. Podejście to nie bierze pod uwagę czynników, które mogą wpłynąć na miejsce docelowe. Przykładowo osoba znajdująca się w hrabstwie o niskim PKB, będzie bardziej skłonna do emigracji do tych hrabstw, które również mają niskie PKB, co jest raczej nieintuicyjne, ponieważ będzie znajdowała się w przestrzeni bliżej nich. Dlatego chcemy znaleźć dla mieszkańca danego hrabstwa takie wagi odpowiadające za ``siłę", które po wykonaniu produktu Hadamarda na wektorze cech osoby i wag, da nam lepsze umieszczenie w przestrzeni.
-
-Dla każdego hrabstwa generujemy wektor, który reprezentuje hipotetyczne hrabstwo, które powstaje w następujący sposób:
+Następnie jesteśmy w stanie policzyć ``wirtualne'' hrabstwo, w następujący sposób:
 \begin{equation}
     h_{vA} = \sum_{i=1}^{k} t_i h_i
 \end{equation}
 
-Aby dostać wektor reprezentujący wpływ danej cechy na migrację biremy różnicę wektora wirtualnego hrabstwa oraz badanego hrabstwa:
-\begin{equation}
-    h_{wA} = 1 + \mathrm{norm}(h_{vA} - h_{A})
-\end{equation}
-Różnica wektorów będzie poddana normalizacji, a następnie przesunięta o 1 tak aby zachować element neutralny skalowania.
+``Wirtualne'' hrabstwo jest średnim hrabstwem, do którego przeciętna osoba z danego hrabstwa będzie chciała emigrować.
+
+Jeżeli każde hrabstwo jest opisywane przez wektor o stałej długości, jesteśmy w stanie nanieść wszystkie hrabstwa na N-wymiarową przestrzeń. Osoba zamieszkująca dane hrabstwo jest opisywana przy pomocy takiej samej liczby cech co wektor dla hrabstwa. Osoby, które są bardziej skłonne do migracji, po naniesieniu ich wektora cech na przestrzeń, będą znajdywały się dalej od rodzinnego hrabstwa, odległość ta determinuje skłonność do migracji. Podejście to nie bierze pod uwagę czynników, które mogą wpłynąć na miejsce docelowe. Przykładowo osoba znajdująca się w hrabstwie o niskim PKB, będzie bardziej skłonna do emigracji do tych hrabstw, które również mają niskie PKB, co jest raczej nieintuicyjne, ponieważ będzie znajdowała się w przestrzeni bliżej nich.
+
+Aby zaradzić temu problemowi wykorzystamy sieć neuronową, która zostanie nauczona aby zamieniać wartości danego hrabstwa na wartości hrabstwa ``wirtualnego''. W ten sposób, wiedząc z jakiego hrabstwa pochodzi, będziemy mogli użyć modelu, a następnie nanieść na przestrzeń zamienione wartości danej osoby.
+
+Aby lepiej zachować lokalne warunki, nie możemy nauczyć jednej sieci na całe Stany Zjednoczone (która może pominąć lokalne potrzeby osób emigrujących), oraz nie możemy nauczyć jednej sieci dla danego hrabstwa (ponieważ mamy tylko jedną próbkę do nauki). Zamiast tego, pogrupujemy wektory hrabstw przy pomocy algorytmu K-means i wytrenujemy jedną sieć neuronową na każdy klaster. W ten sposób zachowamy balans pomiędzy lokalnością sieci oraz ilością danych do nauki.
 
 \subsection*{Przebieg symulacji}
 \begin{enumerate}
     \item Wylosowanie ustalonej liczby przedstawicieli z każdego hrabstwa
-    \item Wykonujemy produkt Hadamarda pomiędzy wektorem wag a pomiędzy każdym wylosowanym mieszkańcem
-    \item Dla każdego mieszkańca obliczmy jego ``odległość" od hrabstwa rodzinnego i na podstawie tej odległości decydujemy czy będzie on migrował czy nie
+    \item Każdą wylosowaną osobę przepuszczamy przez sieć neuronową, która zależy do odpowiedniego klastra
+    \item Dla każdego mieszkańca obliczmy jego ``odległość'' od hrabstwa rodzinnego i na podstawie tej odległości decydujemy czy będzie on migrował czy nie
     \item Sprawdzamy ile osób wyemigrowało z danego hrabstwa i na tej podstawie losujemy bez zwracania właśnie taką liczbę emigrantów
     \item Dla każdej wylosowanej osoby obliczamy odległość w przestrzeni do każdego innego hrabstwa i podstawie tej odległości losujemy jedno hrabstwo do którego reprezentant wyemigruje
     \item Ponownie losujemy wybrane zmienne cech (takie jak np. zarobki) inne pozostawimy bez zmian, a jeszcze inne ustawiamy na takie, jakie występują w obecnym miejscu zamieszkania
     \item Przez ustaloną liczbę kroków symulacji wykonujemy polecenia zaczynając od numeru 2.
 \end{enumerate}
+
+\subsection*{Ilustracja mechanizmu projektu}
+\begin{equation}
+    \mathbf{A} = \begin{bmatrix}
+        a_1    \\
+        a_2    \\
+        \vdots \\
+        a_N    \\
+    \end{bmatrix},
+    \mathbf{B} = \begin{bmatrix}
+        b_1    \\
+        b_2    \\
+        \vdots \\
+        b_N    \\
+    \end{bmatrix},
+    \mathbf{C} = \begin{bmatrix}
+        c_1    \\
+        c_2    \\
+        \vdots \\
+        c_N    \\
+    \end{bmatrix},
+    \mathbf{D} = \begin{bmatrix}
+        d_1    \\
+        d_2    \\
+        \vdots \\
+        d_N    \\
+    \end{bmatrix},
+    \mathbf{E} = \begin{bmatrix}
+        e_1    \\
+        e_2    \\
+        \vdots \\
+        e_N    \\
+    \end{bmatrix},
+    \mathbf{F} = \begin{bmatrix}
+        f_1    \\
+        f_2    \\
+        \vdots \\
+        f_N    \\
+    \end{bmatrix}
+\end{equation}
+A, B, C, D, E oraz F są przykładowymi hrabstwami, maje odpowiadające im cechy zapisane w wektorach po prawej stronie znaku równa się.
+
+Na potrzeby prezentacji, załóżmy, że osoby z hrabstwa A migrowały w następujących ilościach: $x_1, x_2, x_3$ kolejno do hrabstw B, C oraz D.
+
+Policzmy ``wirtualne'' hrabstwo $V_A$ dla A:
+\begin{equation}
+    \begin{gathered}
+        t = \softmax ([x_1, x_2, x_3]) \\
+        V_A = t_1B + t_2C + t_3D \\
+        V_A = \begin{bmatrix}
+            v_{a1} \\
+            v_{a2} \\
+            \vdots \\
+            v_{aN} \\
+        \end{bmatrix}
+    \end{gathered}
+\end{equation}
+
+Analogiczne operacje zostaną wykonane aby policzyć ``wirtualne'' hrabstwo dla każdego z naszych hrabstw.
+
+Nanieśmy teraz nasze hrabstwa na przestrzeń. Dla uproszenia wizualizacji pokażemy tylko ją dla dwóch wymiarów.
+
+\begin{center}
+    \begin{tikzpicture}
+        % Points
+        \coordinate (A) at (1, 2);
+        \coordinate (B) at (5, 4);
+        \coordinate (C) at (5, 1);
+        \coordinate (D) at (2, 3);
+        \coordinate (E) at (4, 2);
+        \coordinate (F) at (1, 4);
+
+        % Plot
+        \draw[->] (0,0) -- (6,0) node[right] {cecha 1};
+        \draw[->] (0,0) -- (0,5) node[above] {cecha 2};
+
+        % Annotations
+        \node[anchor=south] at (A) {A};
+        \node[anchor=south] at (B) {B};
+        \node[anchor=south] at (C) {C};
+        \node[anchor=south] at (D) {D};
+        \node[anchor=south] at (E) {E};
+        \node[anchor=south] at (F) {F};
+
+        % Points
+        \fill (A) circle (2pt);
+        \fill (B) circle (2pt);
+        \fill (C) circle (2pt);
+        \fill (D) circle (2pt);
+        \fill (E) circle (2pt);
+        \fill (F) circle (2pt);
+    \end{tikzpicture}
+\end{center}
+
+Mając hrabstwa naniesione na płaszczyznę, możemy zająć się treningiem modeli. Zaczynamy najpierw od podziału hrabstw na klastry. W pokazanym przypadku będziemy mieli dwa klastry, gdzie do pierwszego będą należały hrabstwa A, D i F, a do drugiego klastra C, E oraz B. Jak zostało to powiedziane wcześniej, klastrowanie odbywa sie przy pomocy algorytmu K-means.
+
+Przy pomocy danych z klastrów tworzymy dwie sieci neuronowe $NN_1$ i $NN_2$, gdzie pierwsza uczy się na danych wejściowych A, D, F i wyjściowych $V_A, V_D$ i $V_F$, a druga jako wejście dostaje wektory B, E, C a jako wyjście odpowiadające im $V_B, V_E$ i $V_C$.
+
+Po wytrenowaniu obu sieci mamy już podstawy aby zacząć losować ludzi z danych hrabstw.
+
+Przyjrzyjmy się osobie $p_{a1}$, która została wylosowana z hrabstwa A. Z hrabstwem A jest skojarzony odpowiedni wielowymiarowy wspólny rozkład prawdopodobieństwa $f_A$, który jest w odpowiedni sposób sparametryzowany, co zostało opisane w sekcji poświęconej temu tematowi.
+\begin{equation}
+    \begin{gathered}
+        h_{a1} \sim f_A \\
+        vh_{a1} = NN_1(h_{a1})
+    \end{gathered}
+\end{equation}
+
+Kolejnie osoba jest przekształcana przy pomocy sieci neuronowej oraz jest nanaszana na przestrzeń hrabstw.
+
+\begin{center}
+    \begin{tikzpicture}
+        % Points
+        \coordinate (A) at (1, 2);
+        \coordinate (B) at (5, 4);
+        \coordinate (C) at (5, 1);
+        \coordinate (D) at (2, 3);
+        \coordinate (E) at (4, 2);
+        \coordinate (F) at (1, 4);
+        \coordinate (ha) at (1.9, 2.1);
+        \coordinate (vha) at (3.1, 1.9);
+
+        % Plot
+        \draw[->] (0,0) -- (6,0) node[right] {cecha 1};
+        \draw[->] (0,0) -- (0,5) node[above] {cecha 2};
+        \draw[->, shorten >=2pt, red] (ha) -- (vha);
+
+        % Annotations
+        \node[anchor=south] at (A) {A};
+        \node[anchor=south] at (B) {B};
+        \node[anchor=south] at (C) {C};
+        \node[anchor=south] at (D) {D};
+        \node[anchor=south] at (E) {E};
+        \node[anchor=south] at (F) {F};
+        \node[anchor=south] at (ha) {$h_{a1}$};
+        \node[anchor=north] at (vha) {$vh_{a1}$};
+
+        % Points
+        \fill (A) circle (2pt);
+        \fill (B) circle (2pt);
+        \fill (C) circle (2pt);
+        \fill (D) circle (2pt);
+        \fill (E) circle (2pt);
+        \fill (F) circle (2pt);
+        \fill[red] (ha) circle (2pt);
+        \fill[red] (vha) circle (2pt);
+    \end{tikzpicture}
+\end{center}
+
+Na powyższym rysunku przedstawiono wszystkie hrabstwa, wylosowaną osobę, a jej transformację przy pomocy sieci neuronowej przedstawiono przy pomocy strzałki.
+
+Następnie znajdujemy $k$ najbliższych sąsiadów (hrabstw) dla punktu $vh_{a1}$ i obliczamy do nich odległości. Oznaczmy je $d_1, d_2, \dots, d_k$.
+Losujemy do którego z hrabstw osoba $h_{a1}$ wyemigruje z prawdopodobieństwami $\softmax ([d_1, d_2, \dots, d_k])$.
+
+Kroki są powtarzane przez ustalona liczbę kroków, lub do momentu, w którym ustalony próg odległości.
 
 \newpage
 \printbibliography[title=Bibliografia]
