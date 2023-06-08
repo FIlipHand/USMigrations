@@ -1,0 +1,47 @@
+```{r}
+library(leaps)
+library(glmnet)
+options(width = 10000)
+```
+
+```{r}
+dataset <- read.csv("data/better_processed/eksporacja.csv", header = TRUE, sep = ";")
+```
+
+```{r}
+migration <- dataset[, 4:ncol(dataset)]
+```
+
+```{r}
+X <- model.matrix(NPOPCHG2022 ~ ., data = migration)
+y <- migration$NPOPCHG2022
+```
+
+```{r}
+set.seed(1)
+n <- nrow(X)
+train <- sample(n, n / 2)
+test <- -train
+```
+
+```{r}
+fit_lasso <- glmnet(X[train, ], y[train], alpha = 1)
+plot(fit_lasso, xvar = "lambda")
+```
+
+
+```{r}
+cv_out <- cv.glmnet(X[train, ], y[train], alpha = 1)
+plot(cv_out)
+cv_out$lambda.min
+pred_lasso <- predict(fit_lasso, s = cv_out$lambda.min, newx = X[test, ])
+mean((pred_lasso - y[test])^2)
+```
+
+```{r}
+fit_lasso_full <- glmnet(X, y, alpha = 1)
+sink("dupa.txt")
+predict(fit_lasso_full, s = cv_out$lambda.min, type = "coefficients")[1:563, ]
+sink()
+```
+
