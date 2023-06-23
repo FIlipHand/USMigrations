@@ -84,13 +84,25 @@ Dane pochodzą z instytucji rządowych, przez co mamy pewność że są wiarygod
 
 Aby móc wylosować cechy konkretniej osoby, należy najpierw znaleźć odpowiednią dystrybucję do każdej z cech. Nie możemy \textit{a-priori} założyć że wszystkie dane pochodzą na przykład z rozkładu normalnego, gdzie średnia to wartość cechy danego hrabstwa.
 
-Na stan obecny, udało nam się odszukać odpowiednie dystrybucje, które reprezentują dene na poziome całych stanów zjednoczonych, co zostało pokazane na grafice poniżej.
+Udało nam się odszukać odpowiednie dystrybucje, które reprezentują dene na poziome całych stanów zjednoczonych, co zostało pokazane na grafice poniżej.
 
 \begin{center}
     \includegraphics*[width=15cm]{./pictures/distributions.png}
 \end{center}
 
-Kolejnym krokiem w projekcie, jest dokonanie parametryzacji dystrybucji dla każdego hrabstwa, tak aby wartość oczekiwana zgadzała się z wartością, która mamy w danych, a kształt krzywej był jak najbardziej podobny do tej, która została przedstawiona dla wszystkich hrabstw.
+Aby umożliwić losowanie z danymi rozkładami zastosowaliśmy transformację Boxa-Coxa. Jest to operacja która powoduje przetworzenie danych w taki sposób aby ich rozkład jak najbardziej był zbliżony do rozkładu normalnego. Transformacja jest wyrażona wzorem: 
+\begin{equation}
+    y_(\lambda) = 
+    \begin{cases}
+    (y^\lambda - 1)/\lambda, & \text{if } \lambda \not = 0\\
+    \ln(y),               & \text{if } \lambda = 0
+    \end{cases}
+\end{equation}
+Na na poniższym obrazku znajdują się rozkłady po transformacji Boxa-Coxa:
+\begin{center}
+    \includegraphics*[width=15cm]{./pictures/box_cox_dist.png}
+\end{center}
+Widać, że wszysktie rozkłady teraz są zbliżone do rozkładu normalnego. Na podstawie tych rozkładów mając średnią i odchylenie standardowe z klastrów na które podzieliliśmy stany możemy losować populację każdego hrabstwa. Transformacja jest odwracalna więc po wylosowaniu możemy powrócić do bazowego zakresu wartości cech. 
 
 \section*{Kroki przy realizacji projektu}
 \subsection*{Wybór cech wpływających na migrację w danym hrabstwie}
@@ -115,19 +127,29 @@ Następnie jesteśmy w stanie policzyć ``wirtualne'' hrabstwo, w następujący 
 
 Jeżeli każde hrabstwo jest opisywane przez wektor o stałej długości, jesteśmy w stanie nanieść wszystkie hrabstwa na N-wymiarową przestrzeń. Osoba zamieszkująca dane hrabstwo jest opisywana przy pomocy takiej samej liczby cech co wektor dla hrabstwa. Osoby, które są bardziej skłonne do migracji, po naniesieniu ich wektora cech na przestrzeń, będą znajdywały się dalej od rodzinnego hrabstwa, odległość ta determinuje skłonność do migracji. Podejście to nie bierze pod uwagę czynników, które mogą wpłynąć na miejsce docelowe. Przykładowo osoba znajdująca się w hrabstwie o niskim PKB, będzie bardziej skłonna do emigracji do tych hrabstw, które również mają niskie PKB, co jest raczej nieintuicyjne, ponieważ będzie znajdowała się w przestrzeni bliżej nich.
 
-Aby zaradzić temu problemowi wykorzystamy sieć neuronową, która zostanie nauczona aby zamieniać wartości danego hrabstwa na wartości hrabstwa ``wirtualnego''. W ten sposób, wiedząc z jakiego hrabstwa pochodzi, będziemy mogli użyć modelu, a następnie nanieść na przestrzeń zamienione wartości danej osoby.
+Musieliśmy znaleźć możliwość zmienienia wartości cech danej osoby na podstawie danych z migracji z danego hrabstwa. Pierwszym pomysłem było wykorzystanie sieci neuronowej, która zostałaby nauczona aby zamieniać wartości danego hrabstwa na wartości hrabstwa ``wirtualnego''. W ten sposób, wiedząc z jakiego hrabstwa pochodzi, moglibyśmy użyć modelu, a następnie nanieść na przestrzeń zamienione wartości danej osoby. 
 
-Aby lepiej zachować lokalne warunki, nie możemy nauczyć jednej sieci na całe Stany Zjednoczone (która może pominąć lokalne potrzeby osób emigrujących), oraz nie możemy nauczyć jednej sieci dla danego hrabstwa (ponieważ mamy tylko jedną próbkę do nauki). Zamiast tego, pogrupujemy wektory hrabstw przy pomocy algorytmu K-means i wytrenujemy jedną sieć neuronową na każdy klaster. W ten sposób zachowamy balans pomiędzy lokalnością sieci oraz ilością danych do nauki.
+Aby lepiej zachować lokalne warunki, nie moglibyśmy nauczyć jednej sieci na całe Stany Zjednoczone (która może pominąć lokalne potrzeby osób emigrujących), oraz nie moglibyśmy nauczyć jednej sieci dla danego hrabstwa (ponieważ mamy tylko jedną próbkę do nauki). Zamiast tego, pogrupowalibyśmy wektory hrabstw przy pomocy algorytmu K-means i wytrnowalibyśmy jedną sieć neuronową na każdy klaster. W ten sposób zostałby zachowany balans pomiędzy lokalnością sieci oraz ilością danych do nauki.
+
+Niestety w implementacja sieci i wykorzystanie jej na prawdziwych danych zweryfikowało ten pomysł. Sieć nie dawała dobrych rezultatów i osoby z danego hrabstwa przesuwały się w przestrzeni cech w to samo miejsce, co uniemożliwiało przeprowadzenie prawdziwej symulacji migracji.
+
+Drugim pomysłem było wyliczenie wag cech instotnych dla osów migrujących z danego hrabstwa. Biorąc pod uwagę cechy danego hrabstwa i jego wirtualnego hrabstwa obliczaliśmy istotność poszczególnych cech. 
+Wektor istotności został policzony w następójący sposób:
+\begin{equation}
+    h_{vA} = 1 + (h_{vA} - h_{A})
+\end{equation}
+
+Następnie cechy osób z tego hrabstwa zostały przemnożone przez powyższy wektor wag przesuwając osoby w przestrzeni cech bliżej miejsc bardziej im odpowiadających. To podejście sprawdziło się i zostało wykorzystane w projekcie.
 
 \subsection*{Przebieg symulacji}
 \begin{enumerate}
-    \item Wylosowanie ustalonej liczby przedstawicieli z każdego hrabstwa
-    \item Każdą wylosowaną osobę przepuszczamy przez sieć neuronową, która zależy do odpowiedniego klastra
-    \item Dla każdego mieszkańca obliczmy jego ``odległość'' od hrabstwa rodzinnego i na podstawie tej odległości decydujemy czy będzie on migrował czy nie
-    \item Sprawdzamy ile osób wyemigrowało z danego hrabstwa i na tej podstawie losujemy bez zwracania właśnie taką liczbę emigrantów
-    \item Dla każdej wylosowanej osoby obliczamy odległość w przestrzeni do każdego innego hrabstwa i podstawie tej odległości losujemy jedno hrabstwo do którego reprezentant wyemigruje
-    \item Ponownie losujemy wybrane zmienne cech (takie jak np. zarobki) inne pozostawimy bez zmian, a jeszcze inne ustawiamy na takie, jakie występują w obecnym miejscu zamieszkania
-    \item Przez ustaloną liczbę kroków symulacji wykonujemy polecenia zaczynając od numeru 2.
+    \item Tworzymy strukturę KD-Tree, w którym umieszczamy hrabstwa na podstawie wartości ich cech.
+    \item Losujemy ustalonej liczby przedstawicieli z każdego hrabstwa.
+    \item Cechy każdej wylosowanej osoby przekształcamy wektorem istotności cech. 
+    \item Dla każdego mieszkańca obliczymy jego ``odległość'' w przestrzeni cech od hrabstwa rodzinnego i na podstawie tej odległości decydujemy czy będzie on migrował czy nie.
+    \item Losujemy bez zwracania liczbę emigrantów na podstawie łącznej wartości migracji z danego hrabstwa.
+    \item Dla każdej osoby wyciągamy z KD-Tree ustaloną liczbę najbliższych hrabstw oraz odległości do nich i na podstawie tych odległości tworzymy wektor prawdopodobieństwa migracji do każdego hrabstwa. Następnie z wyliczonym prawdopodobieństwem losujemy jedno hrabstwo do którego reprezentant wyemigruje.
+    \item Przez ustaloną liczbę kroków symulacji wykonujemy polecenia zaczynając od numeru 3.
 \end{enumerate}
 
 \subsection*{Ilustracja mechanizmu projektu}
@@ -223,21 +245,103 @@ Nanieśmy teraz nasze hrabstwa na przestrzeń. Dla uproszenia wizualizacji poka�
     \end{tikzpicture}
 \end{center}
 
-Mając hrabstwa naniesione na płaszczyznę, możemy zająć się treningiem modeli. Zaczynamy najpierw od podziału hrabstw na klastry. W pokazanym przypadku będziemy mieli dwa klastry, gdzie do pierwszego będą należały hrabstwa A, D i F, a do drugiego klastra C, E oraz B. Jak zostało to powiedziane wcześniej, klastrowanie odbywa sie przy pomocy algorytmu K-means.
+Nanieśmy także przykładowe wirtualne hrabstwo na daną przestrzeń. 
 
-Przy pomocy danych z klastrów tworzymy dwie sieci neuronowe $NN_1$ i $NN_2$, gdzie pierwsza uczy się na danych wejściowych A, D, F i wyjściowych $V_A, V_D$ i $V_F$, a druga jako wejście dostaje wektory B, E, C a jako wyjście odpowiadające im $V_B, V_E$ i $V_C$.
+\begin{center}
+    \begin{tikzpicture}
+        % Points
+        \coordinate (A) at (1, 2);
+        \coordinate (vA) at (3, 3);
+        \coordinate (B) at (5, 4);
+        \coordinate (C) at (5, 1);
+        \coordinate (D) at (2, 3);
+        \coordinate (E) at (4, 2);
+        \coordinate (F) at (1, 4);
 
-Po wytrenowaniu obu sieci mamy już podstawy aby zacząć losować ludzi z danych hrabstw.
+        % Plot
+        \draw[->] (0,0) -- (6,0) node[right] {cecha 1};
+        \draw[->] (0,0) -- (0,5) node[above] {cecha 2};
+        \draw[->, shorten >=2pt, red] (A) -- (vA);
+
+        % Annotations
+        \node[anchor=south] at (A) {A};
+        \node[anchor=south]  at (vA) {vA};
+        \node[anchor=south] at (B) {B};
+        \node[anchor=south] at (C) {C};
+        \node[anchor=south] at (D) {D};
+        \node[anchor=south] at (E) {E};
+        \node[anchor=south] at (F) {F};
+
+        % Points
+        \fill (A) circle (2pt);
+        \fill[green] (vA) circle (2pt);
+        \fill (B) circle (2pt);
+        \fill (C) circle (2pt);
+        \fill (D) circle (2pt);
+        \fill (E) circle (2pt);
+        \fill (F) circle (2pt);
+    \end{tikzpicture}
+\end{center}
+
+To oznacza że osoby migrujące z hrabstwa A wybierają hrabstwa o większej wartości cechy 1 oraz o wiekszej wartości cechy 2. Wirtualne hrabstwo A znajduje się blisko hrabstwa D oraz hrabstwa E. 
+Wektor wag istotności cech obliczamy tak jak to zostało przedstawione w rozdziale Kroki realizacji projektu. 
+
+Następnie losujemy populację osób z każdego hrabstwa, proporcjonalną do wielkości hrabstwa. 
 
 Przyjrzyjmy się osobie $p_{a1}$, która została wylosowana z hrabstwa A. Z hrabstwem A jest skojarzony odpowiedni wielowymiarowy wspólny rozkład prawdopodobieństwa $f_A$, który jest w odpowiedni sposób sparametryzowany, co zostało opisane w sekcji poświęconej temu tematowi.
 \begin{equation}
     \begin{gathered}
         h_{a1} \sim f_A \\
-        vh_{a1} = NN_1(h_{a1})
     \end{gathered}
 \end{equation}
 
-Kolejnie osoba jest przekształcana przy pomocy sieci neuronowej oraz jest nanaszana na przestrzeń hrabstw.
+Następnie wektor cech osoby zostaje przekształcony za pomocą wektora wag istotności cech osób w danym hrabstwie. 
+
+\begin{center}
+    \begin{tikzpicture}
+        % Points
+        \coordinate (A) at (1, 2);
+        \coordinate (vA) at (3, 3);
+        \coordinate (B) at (5, 4);
+        \coordinate (C) at (5, 1);
+        \coordinate (D) at (2, 3);
+        \coordinate (E) at (4, 2);
+        \coordinate (F) at (1, 4);
+        \coordinate (pa) at (2.3, 1.9);
+        \coordinate (vpa) at (3.45, 2.5);
+        
+        % Plot
+        \draw[->] (0,0) -- (6,0) node[right] {cecha 1};
+        \draw[->] (0,0) -- (0,5) node[above] {cecha 2};
+        \draw[->, shorten >=2pt, red] (pa) -- (vpa);
+
+        % Annotations
+        \node[anchor=south] at (A) {A};
+        \node[anchor=south]  at (vA) {vA};
+        \node[anchor=south] at (B) {B};
+        \node[anchor=south] at (C) {C};
+        \node[anchor=south] at (D) {D};
+        \node[anchor=south] at (E) {E};
+        \node[anchor=south] at (F) {F};
+        \node[anchor=south] at (pa) {$p_{a1}$};
+        \node[anchor=north] at (vpa) {$vp_{a1}$};
+
+        % Points
+        \fill (A) circle (2pt);
+        \fill[green] (vA) circle (2pt);
+        \fill (B) circle (2pt);
+        \fill (C) circle (2pt);
+        \fill (D) circle (2pt);
+        \fill (E) circle (2pt);
+        \fill (F) circle (2pt);
+        \fill[red] (pa) circle (2pt);
+        \fill[red] (vpa) circle (2pt);
+    \end{tikzpicture}
+\end{center}
+
+Na powyższym rysunku przedstawiono wszystkie hrabstwa, wylosowaną osobę, a jej transformację przedstawiono przy pomocy strzałki.
+
+Następnie znajdujemy $k$ najbliższych sąsiadów (hrabstw) dla punktu $vp_{a1}$ i obliczamy do nich odległości. Oznaczmy je $d_1, d_2, \dots, d_k$.
 
 \begin{center}
     \begin{tikzpicture}
@@ -248,13 +352,14 @@ Kolejnie osoba jest przekształcana przy pomocy sieci neuronowej oraz jest nanas
         \coordinate (D) at (2, 3);
         \coordinate (E) at (4, 2);
         \coordinate (F) at (1, 4);
-        \coordinate (ha) at (1.9, 2.1);
-        \coordinate (vha) at (3.1, 1.9);
-
+        \coordinate (vpa) at (3.45, 2.5);
+        
         % Plot
         \draw[->] (0,0) -- (6,0) node[right] {cecha 1};
         \draw[->] (0,0) -- (0,5) node[above] {cecha 2};
-        \draw[->, shorten >=2pt, red] (ha) -- (vha);
+        \draw[<->, shorten >=2pt, red] (vpa) -- (B) node[midway,above,align=center] {$d_1$};
+        \draw[<->, shorten >=2pt, red] (vpa) -- (D)node[midway,above,align=center] {$d_2$};
+        \draw[<->, shorten >=2pt, red] (vpa) -- (E)node[midway,above,align=center] {$d_3$};
 
         % Annotations
         \node[anchor=south] at (A) {A};
@@ -263,27 +368,76 @@ Kolejnie osoba jest przekształcana przy pomocy sieci neuronowej oraz jest nanas
         \node[anchor=south] at (D) {D};
         \node[anchor=south] at (E) {E};
         \node[anchor=south] at (F) {F};
-        \node[anchor=south] at (ha) {$h_{a1}$};
-        \node[anchor=north] at (vha) {$vh_{a1}$};
+        \node[anchor=north] at (vpa) {$vp_{a1}$};
 
         % Points
         \fill (A) circle (2pt);
-        \fill (B) circle (2pt);
+        \fill[green] (B) circle (2pt);
         \fill (C) circle (2pt);
-        \fill (D) circle (2pt);
-        \fill (E) circle (2pt);
+        \fill[green] (D) circle (2pt);
+        \fill[green] (E) circle (2pt);
         \fill (F) circle (2pt);
-        \fill[red] (ha) circle (2pt);
-        \fill[red] (vha) circle (2pt);
+        \fill[red] (vpa) circle (2pt);
     \end{tikzpicture}
 \end{center}
 
-Na powyższym rysunku przedstawiono wszystkie hrabstwa, wylosowaną osobę, a jej transformację przy pomocy sieci neuronowej przedstawiono przy pomocy strzałki.
+Losujemy do którego z hrabstw osoba $h_{a1}$ wyemigruje z prawdopodobieństwami \\
+$\softmax ([d_1, d_2, \dots, d_k])$.
 
-Następnie znajdujemy $k$ najbliższych sąsiadów (hrabstw) dla punktu $vh_{a1}$ i obliczamy do nich odległości. Oznaczmy je $d_1, d_2, \dots, d_k$.
-Losujemy do którego z hrabstw osoba $h_{a1}$ wyemigruje z prawdopodobieństwami $\softmax ([d_1, d_2, \dots, d_k])$.
+Aktualizujemy wszystkim osobom domowe hrabstwo oraz cechy i wykonujemy kolejny obieg symulacji. 
+Czynności są powtarzane przez ustalona liczbę kroków.
 
-Kroki są powtarzane przez ustalona liczbę kroków, lub do momentu, w którym ustalony próg odległości.
+\subsection*{Wyniki}
+Przeprowadziliśmy symulację dla różnych liczb najbliższych sąsiadów, spośród których losowane byłoby hrabstwo do którego osoba z populacji migruje. Sprawdzone przez nas liczby najbliższych sąsiadów to 10, 100, 500 i 1000. W każdym z wariantów przeprowadziliśmy 10 iteracji symulacji. Wyniki są zróżnicowane i pokazują różne aspekty migracji w Stanach Zjednoczonych. 
+
+Na poniższym obrazku widzimy stan początkowy. Na szaro są hrabstwa z których nie posiadaliśmy danych. 
+\begin{center}
+    \includegraphics*[width=15cm]{./pictures/base_population.png}
+\end{center}
+
+Za punkt odniesienia bierzemy mapę rzeczywistych migracji:
+\begin{center}
+    \includegraphics*[width=15cm]{./pictures/real_population.png}
+\end{center}
+Widać na niej odpływ ludności z dużych miast do okolicznych hrabstw. Widać to zwłaszcza na Florydzie, w Arizonie i w Kalifornii. Widać także przemieszczanie się ludności pomiędzy hrabstwami w środkowej części Stanów oraz przypływ ludzi do małych miast.
+
+
+Mapa dla 10 najbliższych sąsiadów podczas wybierania kierunku migracji:
+\begin{center}
+    \includegraphics*[width=15cm]{./pictures/population_k10.png}
+\end{center}
+
+
+Dla 10 najbliższych sąsiadów skupiamy się głownie na ogólnie najlepszych hrabstwach, do których chciałyby migrować osoby z całych stanów. Dlatego na mapie przedstawiającej stan po migracjach widać pojedyncze mocno żółte hrabstwa które zerbały bardzo dużą liczbę migrantów. Wynika z tego że zbyt duza lokalność zamyka możliwości do migracji w pewne mniej oczywiste miejsca przez co źle oddaje prawdziwą dynamikę migracji.
+
+
+Mapa dla 100 najbliższych sąsiadów podczas wybierania kierunku migracji:
+\begin{center}
+    \includegraphics*[width=15cm]{./pictures/population_k100.png}
+\end{center}
+
+Powyższa mapa lepiej obrazuje rzeczywistą migrację. Widzimy, że niektóre duże ośrodki notują odpływ społeczeństwa, a okoliczne hrabstwa notują przypływ ludności. Na zachodnim wybrzeżu przybywa ludzi także jak w rzeczywistości. 
+
+
+Mapa dla 500 najbliższych sąsiadów podczas wybierania kierunku migracji:
+\begin{center}
+    \includegraphics*[width=15cm]{./pictures/population_k500.png}
+\end{center}
+
+W przypadku 500 sąsiadów możemy zaobserwować odmienne schematy niż w dwóch poprzednich przypadkach. Część obszarów pokrywa się z prawdziwymi danymi. Widać, że nie ma tutaj znacznego nasycania się pewnych konkretnych miejsc a osoby rozpraszają się po wielu hrabstwach.
+
+Mapa dla 1000 najbliższych sąsiadów podczas wybierania kierunku migracji:
+\begin{center}
+    \includegraphics*[width=15cm]{./pictures/population_k1000.png}
+\end{center}
+Na tej mapie widnieje większa tendencja chęci wyjazdu z pewnych konkretnych hrabstw. Nie ma na tej mapie obszarów z nasyconym żółtym kolorem. Ludzie opuszczali pewne miejsca zaznaczone na niebiesko i rozpraszali się po całych stanach. W mniej licznych hrabstwach w centralnej części ameryki nastąpiło przemieszanie ludności.
+
+
+\subsubsection*{Wnioski}
+Migracja jest procesem bardzo złożonym. Udało się nam dostać wyniki częściowo zbieżne z prawdziwymi danymi, co jest dużym sukcesem. Można na nich odnaleźć wzorce i mechanizmy widoczne w prawdziwym procesie migracji. Oczywiście są także rozbieżności pomiędzy rzeczywistością, a wynikami. Wpływ na to ma wiele czynników, między innymi ilość i dobór cech. Wybraliśmy jedynie 10 zmiennych, które mogą zbyt słabo opisywać powody społeczeństwa do migracji. Możliwe, że nasz wybór cech spowodował, że w symulacji pewne hrabstwa były wybierane częściej/rzadziej przez osobników, a w rzeczywistości są także inne wskaźniki, przez które ludzie chcieliby bądź nie chcieliby migrować do danego hrabstwa.     
+
+Podsumowując, projekt pozwolił zrozumieć pewne czynniki stojące za migracją oraz 
+Jesteśmy w stanie, w pewnym stopniu poprawnie, zasymulować migrację zachowując wzorce i tendencje migracyjne. W przyszłości projekt możnaby było rozszerzyć o szerszy zestaw cech, opisujących obszary i populację. Można też zastosować model symulacyjny na inne państwa, a nawet cały świat. 
 
 \newpage
 \printbibliography[title=Bibliografia]
