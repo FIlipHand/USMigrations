@@ -389,6 +389,26 @@ Czynności są powtarzane przez ustalona liczbę kroków.
 
 \subsection*{Wyniki}
 Przeprowadziliśmy symulację dla różnych liczb najbliższych sąsiadów, spośród których losowane byłoby hrabstwo do którego osoba z populacji migruje. Sprawdzone przez nas liczby najbliższych sąsiadów to 10, 100, 500 i 1000. W każdym z wariantów przeprowadziliśmy 10 iteracji symulacji. Wyniki są zróżnicowane i pokazują różne aspekty migracji w Stanach Zjednoczonych. 
+\begin{center}
+    \begin{table}[!htbp]
+        \centering
+        \begin{tabular}{ |p{1.5cm}||p{2.5cm}|p{2.5cm}|p{2.5cm}|p{2.5cm}|  }
+             \hline
+             Epoch&k=10&k=100&k=500&k=1000\\
+             \hline
+             1&115.0&92.9&72.4&69.2\\
+             \hline
+             5&481.5&405.0&319.6&298.2\\
+             \hline
+             10&817.2&699.9&557.7&513.4\\
+             \hline
+        \end{tabular}
+        \caption{Błąd średniokwadratowy dla wybranych epok i różnej liczby najbliższych sąsiadów.}
+        \label{tab:my_label}
+    \end{table}
+\end{center}
+Według powyższej tabeli błąd zmierzony pomiędzy wynikiem symulacji, a prawdziwą wartością migracji rośnie z kolejnymi iteracjami symulacji. Błąd średniokwadratowy jest mniejszy dla losowania spośród większej liczby najbliższych sąsiadów, aczkolwiek skutkuje to zwiększeniem czasu obliczeń symulacji.   
+
 
 Na poniższym obrazku widzimy stan początkowy. Na szaro są hrabstwa z których nie posiadaliśmy danych. 
 \begin{center}
@@ -431,6 +451,12 @@ Mapa dla 1000 najbliższych sąsiadów podczas wybierania kierunku migracji:
     \includegraphics*[width=15cm]{./pictures/population_k1000.png}
 \end{center}
 Na tej mapie widnieje większa tendencja chęci wyjazdu z pewnych konkretnych hrabstw. Nie ma na tej mapie obszarów z nasyconym żółtym kolorem. Ludzie opuszczali pewne miejsca zaznaczone na niebiesko i rozpraszali się po całych stanach. W mniej licznych hrabstwach w centralnej części ameryki nastąpiło przemieszanie ludności.
+
+Na poniższej mapie znajduje się procentowa różnica pomiędzy przewdywaną wartością polulacji w każdym hrabstwie, a prawdziwą wartością populacji dla najlepszego modelu względem błędu średniokwadratowego - k1000:
+\begin{center}
+    \includegraphics*[width=15cm]{./pictures/error_k1000.png}
+\end{center}
+Widać, że w większości hrabstw populacje siągneły poziom zbliżony do rzeczywistego. Występują pewne hrabstwa, w których zmiana populacji wykazała się inną tendencją niż miało to miejsce w rzeczywistości. 
 
 
 \subsubsection*{Wnioski}
